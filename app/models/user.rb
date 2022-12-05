@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :username, format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
 
   validates :email, length: { in: 3..255 }
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message:  "email invalid"  }
 
   validates :password, length: { in: 8..255 }, allow_nil: true
 
