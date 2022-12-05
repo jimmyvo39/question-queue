@@ -7,16 +7,11 @@ class User < ApplicationRecord
   validates :email, length: { in: 3..255 }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  validates :password, length: { in: 6..255 }, allow_nil: true
+  validates :password, length: { in: 8..255 }, allow_nil: true
 
   before_validation :ensure_session_token
 
-  def generate_unique_session_token
-    while true
-      session_token = SecureRandom.urlsafe_base64
-      return session_token if !User.exists?(session_token)
-    end
-  end
+
 
   def ensure_session_token
     self.session_token ||= generate_unique_session_token
@@ -47,4 +42,13 @@ class User < ApplicationRecord
   end
   
   has_secure_password
+
+  private   def generate_unique_session_token
+    while true
+      session_token = SecureRandom.urlsafe_base64
+      return session_token if !User.exists?(session_token)
+    end
+  end
+
+  
 end

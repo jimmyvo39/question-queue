@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::API
   include ActionController::RequestForgeryProtection
+  protect_from_forgery with: :exception
 
   rescue_from StandardError, with: :unhandled_error
   rescue_from ActionController::InvalidAuthenticityToken,
     with: :invalid_authenticity_token
   
-  protect_from_forgery with: :exception
 
   before_action :snake_case_params, :attach_authenticity_token
 
@@ -34,28 +34,17 @@ class ApplicationController < ActionController::API
   end
   
   def require_logged_in
-    unless current_user
-      render json: { message: 'Unauthorized' }, status: :unauthorized 
+    if !logged_in?
+        render json: { errors: ['Must be logged in'] }, status: :unauthorized
     end
   end
 
-
-  def test
-    if params.has_key?(:login)
-      login!(User.first)
-    elsif params.has_key?(:logout)
-      logout!
-    end
-  
-    if current_user
-      render json: { user: current_user.slice('id', 'username', 'session_token') }
-    else
-      render json: ['No current user']
+  def require_logged_out
+    if logged_in?
+        render json: { errors: ['Must be logged out'] }, status: 403
     end
   end
 
-
-  
 
   private
 
