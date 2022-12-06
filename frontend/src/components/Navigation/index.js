@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
+// import ProfileButton from './ProfileButton';
 import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 import './Navigation.css';
 
 function Navigation() {
@@ -11,7 +12,8 @@ function Navigation() {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      // <ProfileButton user={sessionUser} />
+      <LogoutButton />
     );
   } else {
     sessionLinks = (
@@ -22,10 +24,11 @@ function Navigation() {
     );
   }
 
+
   return (
     <header className="site-header">
       <NavLink exact to="/" className="nav-title">
-        <h1>BenchBnB</h1>
+        <h1>Question Queue</h1>
       </NavLink>
       <div className="session-links">
         {sessionLinks}

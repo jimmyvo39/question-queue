@@ -11,9 +11,11 @@ function App() {
         <Route path="/signup">
           <SignupFormPage />
         </Route>
-        <Route path="/">
+
+        <Route exact path="/">
           <h1>splash</h1>
         </Route>
+
       </Switch>
     </>
   );
