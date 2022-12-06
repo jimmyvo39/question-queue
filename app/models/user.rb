@@ -13,13 +13,9 @@ class User < ApplicationRecord
 
 
 
-  def ensure_session_token
-    self.session_token ||= generate_unique_session_token
-
-  end
-
+  
   def self.find_by_credentials(credential, password)
-
+    
     if (credential.match( URI::MailTo::EMAIL_REGEXP ))
       user = User.find_by(email: credential)
     else
@@ -29,26 +25,31 @@ class User < ApplicationRecord
     if user
       return user if user.authenticate(password)
     end
-        
+    
     false
     
   end
-
+  
   def reset_session_token!
-
+    
     self.session_token = generate_unique_session_token()
     save!
     session_token
   end
   
   has_secure_password
-
-  private   def generate_unique_session_token
+  
+  private   
+  
+  def generate_unique_session_token
     while true
       session_token = SecureRandom.urlsafe_base64
       return session_token if !User.exists?(session_token)
     end
   end
-
+  
+  def ensure_session_token
+    self.session_token ||= generate_unique_session_token
+  end
   
 end
