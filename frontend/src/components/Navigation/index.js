@@ -1,12 +1,10 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import ProfileButton from './ProfileButton';
-import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import './Navigation.css';
 import { Input } from '../Forms';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import logo from './logo.png';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -14,8 +12,8 @@ function Navigation() {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      // <ProfileButton user={sessionUser} />
       <>
+      {/* <ProfileButton user={sessionUser} /> */}
         <Logo/>
         <Link>About</Link>
         <SearchBar/>
@@ -30,14 +28,32 @@ function Navigation() {
       <>
         <DropDown/>
         <Logo/>
-        <Link>About</Link>
-        <Link>Github</Link>
-        <Link>LinkedIn</Link>
+        <TextLinks/>
         <SearchBar/>
-        <LoginButton />
-        <NavLink to="/signup" className="button">Sign Up</NavLink>
+        <NavLink to="/login" className="login-button">Log in</NavLink>
+        <NavLink to="/signup" className="signup-button">Sign up</NavLink>
       </>
     );
+  }
+
+  function TextLinks() {
+    return(
+    <div className='text-link'>
+      <Link>About</Link>
+      <a href="https://github.com/jimmyvo39/question-queue/wiki" target="_blank">Github</a>
+      <a href="https://www.linkedin.com/in/jimmy-vo-02a5043b/" target="_blank">LinkedIn</a>
+    </div>
+    )
+  }
+
+  function Logo() {
+    return (
+      <NavLink exact to="/" className="nav-title">
+        <img className="logo" src={logo} alt="logo"></img>
+        <h1 className="question">question</h1>
+        <h1 className="queue">queue</h1>
+      </NavLink>
+    )
   }
 
   function DropDown() {
@@ -53,13 +69,7 @@ function Navigation() {
     )
   }
 
-  function Logo() {
-    return (
-      <NavLink exact to="/" className="nav-title">
-        <h1>Question Queue</h1>
-      </NavLink>
-    )
-  }
+
 
 
 

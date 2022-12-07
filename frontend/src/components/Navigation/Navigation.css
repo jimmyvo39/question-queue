@@ -1,30 +1,48 @@
-header.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* margin: 20px 0; */
-  /* border: solid 2px red */
-}
 
-button.login-button{
+
+.login-button{
   font-family:  "system-ui", "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", sans-serif;
 	font-size: 13px;
 	font-weight: 400;
 	letter-spacing: normal;
   text-align: center;
+  color: #39739D;
 
   height: 33px;
 	/* width: 59.4531px; */
-  background-color: rgb(179, 211, 234);
+  background-color: #E1ECF4;
   border: 1px solid rgb(122, 167, 199);
   padding: 8px 10.4px;
   box-shadow: rgba(255, 255, 255, 0.7) 0px 1px 0px 0px inset;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
-button.login-button:hover {
-  background-color: rgb(44, 88, 119);
+.login-button:hover {
+  background-color: #B3D3EA;
 }
+
+.signup-button{
+  font-family:  "system-ui", "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	letter-spacing: normal;
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFF;
+
+  height: 33px;
+	/* width: 59.4531px; */
+  background-color: #0A95FF;
+  border: 1px solid rgb(122, 167, 199);
+  padding: 8px 10.4px;
+  box-shadow: rgba(255, 255, 255, 0.7) 0px 1px 0px 0px inset;
+  border-radius: 3px;
+}
+
+.signup-button:hover {
+  background-color: #0074CC;
+}
+
 
 header {
   border-top: solid 3px hsl(27,90%,55%);
@@ -35,13 +53,63 @@ header {
 
 .nav-title {
   color: black;
-  text-decoration: none; 
+  display: flex;
+  
+  align-items: center;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  padding: 5px;
+  height: 43px;
+  width: 170px;
+
 }
 
-.nav-title h1 {
-
-  font-size: 2rem;
+.nav-title:hover {
+  background-color: #E3E6E8;
+  
 }
+
+/* .text-link{
+  display: flex;
+} */
+
+.text-link * {
+  padding: 5px 7px;
+  text-decoration: none;
+  color: #232629;
+  margin: 2px;
+  font-size: 13px;
+  border-radius: 25px;
+  /* border: red dashed 1px; */
+}
+
+.text-link *:hover {
+  background-color: #E3E6E8;
+}
+
+.logo {
+  max-width:20%;
+  height:auto;
+  background-position: left center;
+  
+}
+.question {
+  padding-left: 5px;
+  font-weight:100;
+  letter-spacing: -1px;
+  font-size: 120%;
+
+}
+
+.queue {
+  padding-left: 3px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  font-size: 120%;
+}
+
+
 
 div.session-links {
   display: flex;
@@ -49,18 +117,10 @@ div.session-links {
 }
 
 div.session-links > * {
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
-/* .profile-button {
-  width: 20px;
-  border: red 2px solid;
-}
 
-.profile-icon {
-  font-size: 1.5rem;
-  cursor: pointer;
-} */
 
 input.search {
   font-size: 12px;
@@ -77,30 +137,14 @@ input.search {
   min-width: 200px;
   height: 30px;
   border: 1px solid hsl(210deg 8% 75%);
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 input.search:focus {
   border: 4px solid hsl(205deg 41% 63%);
 }
 
-.profile-dropdown {
-  position: absolute;
-  border: 1px solid grey;
-  border-radius: 5px;
-  padding: 5px;
-  top: 100%;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  z-index: 1;
-}
 
-.profile-dropdown li {
-  text-align: right;
-  margin: 5px;
-}
 
 .login-modal {
   display: flex;
