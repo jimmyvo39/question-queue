@@ -15,7 +15,7 @@ function LoginForm({ onSuccess }) {
     <form onSubmit={onSubmit} className="form">
       <FormErrors errors={errors}/>
       <Input 
-        label="Username or Email"
+        label="Email"
         value={credential}
         onChange={onCredentialChange}
         required

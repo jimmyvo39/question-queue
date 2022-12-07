@@ -30,10 +30,19 @@ function Navigation() {
         <Logo/>
         <TextLinks/>
         <SearchBar/>
-        <NavLink to="/login" className="login-button">Log in</NavLink>
-        <NavLink to="/signup" className="signup-button">Sign up</NavLink>
+        <LoginAndSignup/>
       </>
     );
+  }
+
+  function LoginAndSignup(){
+    return(
+      <div className='login-signup'>
+        <NavLink to="/login" className="login-button" id='login'>Log in</NavLink>
+        <NavLink to="/signup" className="signup-button" id='signup'>Sign up</NavLink>
+      </div>
+  
+    )
   }
 
   function TextLinks() {
@@ -64,7 +73,10 @@ function Navigation() {
 
   function SearchBar() {
     return (
-      <Input class="search" type="text" placeholder="Search soon..."></Input>
+      <div className='search-container'>
+
+        <Input className="search" type="text" placeholder="Search soon..."></Input>
+      </div>
 
     )
   }

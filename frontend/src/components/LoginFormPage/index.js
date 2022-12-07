@@ -2,7 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { LoginForm } from "../SessionForms";
-// import './SignupForm.css';
+import './LoginForm.css';
+
+
 
 function SignupFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
