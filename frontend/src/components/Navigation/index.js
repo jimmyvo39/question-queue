@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import LogoutButton from './LogoutButton';
 import './Navigation.css';
 import { Input } from '../Forms';
-import logo from './logo.png';
+import logo from '../../asset/logo.png';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);

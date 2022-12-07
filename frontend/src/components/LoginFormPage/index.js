@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { LoginForm } from "../SessionForms";
 import './LoginForm.css';
+import logo from '../../asset/logo.png';
 
 
 
@@ -12,10 +13,15 @@ function SignupFormPage() {
   return sessionUser ? (
     <Redirect to="/" />
   ) : (
-    <div className="login-page">
-      <h1>Log in</h1>
-      <LoginForm />
-    </div>
+    
+      <div className="page">
+        <img className="logo" src={logo} alt="logo"></img>
+        <button>Demo User</button>
+        <div className="login-page">
+          <LoginForm />
+        </div>
+      </div>
+    
   );
 }
 

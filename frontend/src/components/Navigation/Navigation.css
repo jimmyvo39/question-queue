@@ -90,8 +90,8 @@ header {
 
 .logo {
   max-width:20%;
-  height:auto;
-  background-position: left center;
+  /* height:auto; */
+
   
 }
 .question {
