@@ -19,18 +19,20 @@ function LoginForm({ onSuccess }) {
       <FormErrors errors={errors}/>
       <h2>Email</h2>
       <Input 
+        className="login-input"
         value={credential}
         onChange={onCredentialChange}
         required
       />
       <h2>Password</h2>
       <Input 
+        className="login-input"
         type="password"
         value={password}
         onChange={onPasswordChange}
         required
       />
-      <button type="submit" className="button">Log In</button>
+      <button type="submit" id="login-button" className="signup-button">Log In</button>
     </form>
   );
 }

@@ -25,6 +25,8 @@ time, mark, audio, video, button {
 	font: inherit;
 	vertical-align: baseline;
 	box-sizing: border-box;
+	text-decoration: none;
+	white-space: nowrap;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 

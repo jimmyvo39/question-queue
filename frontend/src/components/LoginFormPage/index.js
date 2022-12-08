@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { LoginForm } from "../SessionForms";
 import './LoginForm.css';
 import logo from '../../asset/logo.png';
+import DemoUser from "./DemoUser";
 
 
 
@@ -16,7 +17,7 @@ function SignupFormPage() {
     
       <div className="page">
         <img className="logo" src={logo} alt="logo"></img>
-        <button>Demo User</button>
+        <DemoUser/>
         <div className="login-page">
           <LoginForm />
         </div>
