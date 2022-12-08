@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserNinja } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -20,7 +20,7 @@ function DemoUser() {
   return (
     <>
       <button onClick={login} className="demo-button">
-      <FontAwesomeIcon icon={faUserNinja} />
+      <FontAwesomeIcon icon={faUser} />
       <h3>Log in with Demo User</h3>
       </button>
     </>
