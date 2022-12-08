@@ -21,33 +21,33 @@ function SignupForm({ onSuccess }) {
   return (
     <form onSubmit={onSubmit} className="form">
       <FormErrors errors={errors}/>
+      <h2>Display name</h2>
       <Input 
-        label="Email"
-        value={email}
-        onChange={onEmailChange}
-        required
-      />
-      <Input 
-        label="Username"
         value={username}
         onChange={onUsernameChange}
         required
       />
+      <h2>Email</h2>
       <Input 
-        label="Password"
+        value={email}
+        onChange={onEmailChange}
+        required
+      />
+      <h2>Password</h2>
+      <Input 
         type="password"
         value={password}
         onChange={onPasswordChange}
         required
       />
+      <h2>Confirm Password</h2>
       <Input 
-        label="Confirm Password"
         type="password"
         value={confirmPassword}
         onChange={onConfirmPasswordChange}
         required
       />
-      <button type="submit" className="button">Sign Up</button>
+      <button type="submit" className="signup-button">Sign Up</button>
     </form>
   );
 }
