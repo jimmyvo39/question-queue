@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: question_queue_production
-  username: question_queue
-  password: <%= ENV["QUESTION_QUEUE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -29,4 +29,8 @@
 /config/master.key
 
 .DS_Store
+<<<<<<< HEAD
 /public
+=======
+/public
+>>>>>>> main
