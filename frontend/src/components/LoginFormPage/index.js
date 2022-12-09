@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { LoginForm } from "../SessionForms";
 import './LoginForm.css';
 import logo from '../../asset/logo.png';
@@ -29,7 +29,7 @@ function SignupFormPage() {
           </h4>
           <h4>
             Are you an employer? 
-            <a href="https://www.linkedin.com/in/jimmy-vo-02a5043b/" target="_blank" className="fine-link"> Reach me here</a>
+            <a href="https://www.linkedin.com/in/jimmy-vo-02a5043b/" target="_blank" className="fine-link" rel="noreferrer"> Reach me here</a>
           </h4>
         </div>
       </div>

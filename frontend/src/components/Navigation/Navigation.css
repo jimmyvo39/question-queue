@@ -45,7 +45,8 @@
 
 
 header {
-  position: relative;
+  position: sticky;
+  top: 0;
   border-top: solid 3px hsl(27,90%,55%);
   z-index: 1;
   height: 50px;
@@ -54,6 +55,8 @@ header {
   width: 100%;
   overflow: hidden;
   box-shadow: 0px 1px 3px #888888;
+  opacity: 1.0;
+  background-color: #FFFFFF;
 }
 
 .site-header {
@@ -90,6 +93,35 @@ header {
   border-radius: 25px;
   /* border: red dashed 1px; */
 }
+
+
+.svg-links {
+  display: flex;
+}
+
+
+.svg-link {
+  margin: 0px 2px;
+  height: 57px;
+  width: 40px;
+}
+
+.svg-link:hover {
+  background-color: #E3E6E8;
+}
+
+a svg {
+  display: block;
+
+  margin: 10px auto;
+  padding-top: 10px;
+  fill: #232629;
+}
+
+a svg:hover {
+  fill: black
+}
+
 
 .text-link *:hover {
   background-color: #E3E6E8;

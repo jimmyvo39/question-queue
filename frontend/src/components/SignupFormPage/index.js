@@ -40,7 +40,7 @@ function SignupFormPage() {
           </h4>
           <h4>
             Are you an employer? 
-            <a href="https://www.linkedin.com/in/jimmy-vo-02a5043b/" target="_blank" className="fine-link"> Reach me here</a>
+            <a href="https://www.linkedin.com/in/jimmy-vo-02a5043b/" target="_blank" className="fine-link" rel="noreferrer"> Reach me here</a>
           </h4>
         </div>
 

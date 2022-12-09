@@ -47,6 +47,9 @@ function SignupForm({ onSuccess }) {
         onChange={onConfirmPasswordChange}
         required
       />
+      <div className="wrap">
+      Passwords must contain at least eight characters, including at least 1 letter and 1 number.
+      </div>
       <button type="submit" className="signup-button">Sign Up</button>
     </form>
   );
