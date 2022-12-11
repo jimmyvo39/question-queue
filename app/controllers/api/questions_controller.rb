@@ -1,6 +1,5 @@
 class Api::QuestionsController < ApplicationController
   before_action: require_logged_in: only: [:create, :destroy, :update]
-  wrap_parameters include: Question.attribute_names + [:author_id]
 
   def index
     @questions = Question.all
@@ -22,7 +21,7 @@ class Api::QuestionsController < ApplicationController
 
   def destroy
     @question = Question.find(params[:id])
-    @question.destroy
+    @question.destroy if @question
     render :index
   end
 
