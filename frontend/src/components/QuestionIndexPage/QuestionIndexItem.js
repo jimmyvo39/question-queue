@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { deleteQuestion } from '../../store/questions';
 
 
 
 const QuestionIndexItem = ({question}) => {
-    const dispatch = useDispatch();
+
 
 
 
@@ -18,10 +16,9 @@ const QuestionIndexItem = ({question}) => {
             <h3>views</h3>
           </div>
           <li>
-              <Link to={`questions/${question.id}`} >{question.title}</Link>
-              {/* <h1>{question.title}</h1> */}
-              <h2>{question.body}</h2>
-              <h2>{question.username}</h2>
+              <Link to={`questions/${question.id}`} className="question-link" >{question.title}</Link>
+              <h3 className="question-body-preview">{question.body}</h3>
+              <h3>{question.author_id} asked {question.created_at}</h3>
 
 
           </li>

@@ -22,7 +22,18 @@
     font-weight: 400;
 }
 
+.question-link{
+    text-decoration: none;
+    color: #0A95FF;
+}
+.question-link:hover{
+    color: #0074CC;
+}
 
+.question-body-preview {
+    font-size: 14px;
+    line-height: 150%;
+}
 .ask-button{
     font-family:  "system-ui", "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", sans-serif;
       font-size: 13px;
