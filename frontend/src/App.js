@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import LoginFormPage  from "./components/LoginFormPage"
+import QuestionIndexPage  from "./components/QuestionIndexPage/index.js"
 
 function App() {
   return (
@@ -15,6 +16,12 @@ function App() {
 
         <Route path="/login">
           <LoginFormPage />
+        </Route>
+
+        <Route path="/questions"  >
+          <>
+           <QuestionIndexPage />
+          </>
         </Route>
 
         <Route exact path="/">
