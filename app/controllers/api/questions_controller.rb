@@ -1,5 +1,5 @@
 class Api::QuestionsController < ApplicationController
-  before_action: require_logged_in: only: [:create, :destroy, :update]
+  before_action :require_logged_in, only: [:create, :destroy, :update]
 
   def index
     @questions = Question.all

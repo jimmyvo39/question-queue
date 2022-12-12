@@ -6,7 +6,11 @@ ApplicationRecord.transaction do
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
-  ApplicationRecord.connection.reset_pk_sequence!('users')
+  # ApplicationRecord.connection.reset_pk_sequence!('users')
+
+  %w(users questions).each do |table_name|
+    ApplicationRecord.connection.reset_pk_sequence!(table_name)
+  end
 
   puts "Creating users..."
   # Create one demo user with an easy to remember username, email, and password:
