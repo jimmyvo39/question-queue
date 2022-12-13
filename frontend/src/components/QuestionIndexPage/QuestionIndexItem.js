@@ -18,7 +18,7 @@ const QuestionIndexItem = ({question}) => {
           <li>
               <Link to={`questions/${question.id}`} className="question-link" >{question.title}</Link>
               <h3 className="question-body-preview">{question.body}</h3>
-              <h3>{question.author_id} asked {question.created_at}</h3>
+              <h3>{question.username} asked {question.createdAt}</h3>
 
 
           </li>
