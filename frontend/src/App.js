@@ -7,6 +7,7 @@ import LoginFormPage  from "./components/LoginFormPage"
 import QuestionIndexPage  from "./components/QuestionIndexPage/index.js"
 import SideNav from "./components/SideNav";
 import SplashPage from "./components/SplashPage";
+import QuestionFormPage from "./components/QuestionFormPage";
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
@@ -44,6 +45,13 @@ function App() {
             <>
             <SideNav />
             <QuestionIndexPage />
+            </>
+          </Route>
+
+          <Route path="/new"  >
+            <>
+            <SideNav />
+            <QuestionFormPage />
             </>
           </Route>
 

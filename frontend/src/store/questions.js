@@ -1,3 +1,5 @@
+import csrfFetch from "./csrf.js";
+
 export const RECEIVE_QUESTIONS = "questions/RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "questions/RECEIVE_QUESTION";
 export const REMOVE_QUESTION = "questions/REMOVE_QUESTION";
@@ -13,20 +15,20 @@ export const getQuestions =  (state) => state.questions ? Object.values(state.qu
 
 
 export const fetchQuestions= () => async (dispatch) => {
-    const res = await fetch(`/api/questions`);
+    const res = await csrfFetch(`/api/questions`);
     const data = await res.json();
     dispatch(receiveQuestions(data))
 
 }
 
 export const fetchQuestion= (questionId) => async (dispatch) => {
-    const res = await fetch(`/api/questions/${questionId}`);
+    const res = await csrfFetch(`/api/questions/${questionId}`);
     const data = await res.json();
     dispatch(receiveQuestion(data))
 }
 
 export const createQuestion= (question) => async (dispatch) => {
-    const res = await fetch(`/api/questions`,{
+    const res = await csrfFetch(`/api/questions`,{
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(question),
         method: "POST"
@@ -36,7 +38,7 @@ export const createQuestion= (question) => async (dispatch) => {
 }
 
 export const updateQuestion= (question) => async (dispatch) => {
-    const res = await fetch(`/api/questions/${question.id}`,{
+    const res = await csrfFetch(`/api/questions/${question.id}`,{
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(question),
         method: "PATCH"

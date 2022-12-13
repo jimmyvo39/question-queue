@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import QuestionIndexItem from './QuestionIndexItem';
 import { getQuestions, fetchQuestions } from '../../store/questions';
 
@@ -24,7 +24,7 @@ const QuestionIndex = () => {
           <div>
             <div className="index-head">
               <h1>All Questions</h1>
-              <Link to={`Questions/new`} className="ask-button">Ask Question</Link>
+              <NavLink to={`new`} className="ask-button">Ask Question</NavLink>
             </div>
             <div className="index-head">
               <h3>
