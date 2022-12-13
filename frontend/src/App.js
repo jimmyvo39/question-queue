@@ -14,11 +14,13 @@ function App() {
   let SessionLinks;
   if (sessionUser) {
     SessionLinks = (
-      <QuestionIndexPage />
+      <>
+        <SideNav />
+        <QuestionIndexPage />
+      </>
     );
   } else {
     SessionLinks = (
-
       <SplashPage />
     );
   }
@@ -27,7 +29,7 @@ function App() {
     <>
       <Navigation />
       <div className="body">
-        <SideNav />
+        
 
         <Switch>
           <Route path="/signup">
@@ -40,6 +42,7 @@ function App() {
 
           <Route path="/questions"  >
             <>
+            <SideNav />
             <QuestionIndexPage />
             </>
           </Route>
