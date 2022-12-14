@@ -15,7 +15,7 @@ class Api::QuestionsController < ApplicationController
 
 
     if @question.save!
-      render :show
+      render :index
     else 
       render json: { errors: @question.errors.full_messages }, status: :unprocessable_entity
     end

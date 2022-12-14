@@ -21,7 +21,6 @@ const QuestionIndexItem = ({question}) => {
     e.preventDefault()
     dispatch(deleteQuestion(question.id))
     history.push(`/questions`)
-
   }
 
 
@@ -62,7 +61,10 @@ const QuestionIndexItem = ({question}) => {
             <h3>views</h3>
           </div>
           <li className='question-preview-text'>
-              <Link to={`questions/${question.id}`} className="question-link" >{question.title}</Link>
+              <button onClick={() => history.push(`/questions/${question.id}`)} 
+                      className="question-link"> {question.title} </button>
+                      
+              {/* <Link to={`questions/${question.id}`} className="question-link" >{question.title}</Link> */}
               <h3 className="question-body-preview">{question.body}</h3>
               <UserName/>
               {sessionDelete}

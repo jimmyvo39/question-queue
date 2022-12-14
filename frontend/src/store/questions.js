@@ -34,7 +34,8 @@ export const createQuestion= (question) => async (dispatch) => {
         method: "POST"
     });
     const data = await res.json();
-    dispatch(receiveQuestion(data))
+    dispatch(receiveQuestion(data));
+    
 }
 
 export const updateQuestion= (question) => async (dispatch) => {

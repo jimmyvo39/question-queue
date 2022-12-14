@@ -8,6 +8,7 @@ import QuestionIndexPage  from "./components/QuestionIndexPage/index.js"
 import SideNav from "./components/SideNav";
 import SplashPage from "./components/SplashPage";
 import QuestionFormPage from "./components/QuestionFormPage";
+import QuestionShowPage from "./components/QuestionShowPage";
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
@@ -42,17 +43,22 @@ function App() {
           </Route>
 
           <Route path="/questions"  >
-            <>
             <SideNav />
             <QuestionIndexPage />
-            </>
+            
+          </Route>
+
+          <Route exact path="/questions/:questionId"  >
+          
+            <SideNav />
+            <QuestionShowPage/>
           </Route>
 
           <Route path="/new"  >
-            <>
+            
             <SideNav />
             <QuestionFormPage />
-            </>
+            
           </Route>
 
           <Route exact path="/">
