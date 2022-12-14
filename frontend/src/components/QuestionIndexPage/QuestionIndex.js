@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import QuestionIndexItem from './QuestionIndexItem';
 import { getQuestions, fetchQuestions } from '../../store/questions';
 
@@ -18,6 +18,8 @@ const QuestionIndex = () => {
     const QuestionIndexItems = questions.map(question =>{
         return <QuestionIndexItem question={question} key={question.id}/>
     })
+
+ 
     
     return(
         <>
@@ -32,7 +34,7 @@ const QuestionIndex = () => {
               </h3>
             </div>
           </div>
-          <ul>{QuestionIndexItems}</ul>
+          <ul>{QuestionIndexItems.reverse()}</ul>
         </>
     )
 }

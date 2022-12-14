@@ -1,25 +1,29 @@
 import React from "react";
 import * as questionActions from "../../store/questions";
+import { useHistory } from 'react-router-dom';
 import { useInput, useSubmit } from "../../hooks";
 import { FormErrors, Input } from "../Forms";
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 
 
 function QuestionForm({ onSuccess }) {
   const sessionUser = useSelector(state => state.session.user);
+  const history = useHistory();
   const [title, onTitleChange] = useInput("");
   const [body, onBodyChange] = useInput("");
   
   const author_id = sessionUser ? sessionUser.id : null
 
+
+  // const [errors, onSubmit] = useSubmit({ 
+  //   onSuccess,
+  //   action: questionActions.createQuestion({ title, body, author_id })
+  // });
+
   const [errors, onSubmit] = useSubmit({ 
-    onSuccess,
-    action: questionActions.createQuestion({ title, body, author_id })
+    action: questionActions.createQuestion({title, body, author_id }),
+    onSuccess: () => history.push('/questions')
   });
-
-
-
-  
 
   return (
     <form onSubmit={onSubmit}>

@@ -11,8 +11,10 @@ class Api::QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.author_id = @current_user.id
 
-    if @question.save
+
+    if @question.save!
       render :show
     else 
       render json: { errors: @question.errors.full_messages }, status: :unprocessable_entity
@@ -22,7 +24,7 @@ class Api::QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy if @question
-    render :index
+    render :show
   end
 
   def update
@@ -33,6 +35,10 @@ class Api::QuestionsController < ApplicationController
     else
       render json: @question.errors.full_messages, status: :unprocessable_entity
     end
+  end
+
+  def relevent_time(created_at)
+    ApplicationController.helpers.time_ago_in_words(created_at) + " ago"
   end
 
   private 

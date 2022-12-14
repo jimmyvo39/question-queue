@@ -35,6 +35,10 @@
     font-size: 12px;
 }
 
+#asked {
+    margin-right: 5px;
+}
+
 .asker {
     color:#0074CC;
     margin-right: 5px;
