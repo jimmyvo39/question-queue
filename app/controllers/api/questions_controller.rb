@@ -15,7 +15,9 @@ class Api::QuestionsController < ApplicationController
 
 
     if @question.save!
-      render :index
+      # render :index
+      # render :show
+      render json: @question
     else 
       render json: { errors: @question.errors.full_messages }, status: :unprocessable_entity
     end
@@ -28,10 +30,13 @@ class Api::QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
+    # debugger
+    @question = Question.find_by(id: params[:id])
 
-    if @question.update(question_params)
-      redirect_to question_url(@question)
+    if @question.update!(question_params)
+      # redirect_to api_question_url(@question)
+      # render :show
+      render json: @question
     else
       render json: @question.errors.full_messages, status: :unprocessable_entity
     end
@@ -44,7 +49,7 @@ class Api::QuestionsController < ApplicationController
   private 
 
   def question_params
-    params.require(:question).permit(:title,:body,:author_id)
+    params.require(:question).permit(:title,:body,:author_id, :id)
   end
 
 

@@ -14,12 +14,15 @@ const QuestionIndex = () => {
     useEffect(()=>{
         dispatch(fetchQuestions())
     },[])
-
+    // debugger
     const QuestionIndexItems = questions.map(question =>{
         return <QuestionIndexItem question={question} key={question.id}/>
     })
 
  
+    if(!questions){
+      return null
+    }
     
     return(
         <>

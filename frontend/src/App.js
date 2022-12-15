@@ -9,6 +9,7 @@ import SideNav from "./components/SideNav";
 import SplashPage from "./components/SplashPage";
 import QuestionFormPage from "./components/QuestionFormPage";
 import QuestionShowPage from "./components/QuestionShowPage";
+import QuestionEditPage from "./components/QuestionEditPage";
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
@@ -29,44 +30,46 @@ function App() {
 
   return (
     <>
-      <Navigation />
-      <div className="body">
+    <Navigation />
+    <div className="body">
+      
+      <Switch>
+        <Route path="/signup">
+          <SignupFormPage />
+        </Route>
+
+        <Route path="/login">
+          <LoginFormPage />
+        </Route>
+
+        <Route path="/new"  >
+          <SideNav />
+          <QuestionFormPage />
+        </Route>
+
+        <Route exact path="/">
+          {SessionLinks}
+        </Route>
         
+        <Route exact path="/questions"  >
+          <SideNav />
+          <QuestionIndexPage />
+        </Route>
 
-        <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
+        <Route  exact path="/questions/:questionId"  >
+          <SideNav />
+          <QuestionShowPage/>
+        </Route>
 
-          <Route path="/login">
-            <LoginFormPage />
-          </Route>
+        <Route  path="/questions/:questionId/edit"  >
+          <SideNav />
+          <QuestionEditPage />
+        </Route>
 
-          <Route path="/questions"  >
-            <SideNav />
-            <QuestionIndexPage />
-            
-          </Route>
 
-          <Route exact path="/questions/:questionId"  >
-          
-            <SideNav />
-            <QuestionShowPage/>
-          </Route>
 
-          <Route path="/new"  >
-            
-            <SideNav />
-            <QuestionFormPage />
-            
-          </Route>
-
-          <Route exact path="/">
-            {SessionLinks}
-          </Route>
-
-        </Switch>
-      </div>
+      </Switch>
+    </div>
     </>
   );
 }

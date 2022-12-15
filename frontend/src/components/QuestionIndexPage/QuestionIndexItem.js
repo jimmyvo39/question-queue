@@ -24,15 +24,15 @@ const QuestionIndexItem = ({question}) => {
   }
 
 
-  if (sessionUser.id === question.authorId) {
+  if ( !sessionUser ) {
+    sessionDelete = (
+      <>
+      </>
+    )
+  } else if (sessionUser.id === question.authorId) {
     sessionDelete = (
       <>
         <button onClick={handle}>delete</button>
-      </>
-    );
-  } else {
-    sessionDelete = (
-      <>
       </>
     );
   }

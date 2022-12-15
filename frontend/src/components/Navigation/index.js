@@ -27,7 +27,7 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <DropDown/>
+        {/* <DropDown/> */}
         <Logo/>
         <TextLinks/>
         <SearchBar/>
@@ -65,7 +65,7 @@ function Navigation() {
   function TextLinks() {
     return(
     <div className='text-link'>
-      <Link>About</Link>
+      <Link to={'/questions'}>Questions</Link>
       <a href="https://github.com/jimmyvo39/question-queue/wiki" target="_blank" rel="noreferrer">Github</a>
       <a href="https://www.linkedin.com/in/jimmy-vo-02a5043b/" target="_blank" rel="noreferrer">LinkedIn</a>
     </div>
