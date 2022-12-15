@@ -16,6 +16,7 @@
     flex-direction: column;
     width: 164px;
     text-decoration: none;
+    color:hsl(210deg 8% 95%);
 }
 
 .sidebar h3{

@@ -66,6 +66,11 @@ function App() {
           <QuestionEditPage />
         </Route>
 
+        <Route  path="/users"  >
+          <SideNav />
+          <h1>Status: 404 These Are Not the Droids You Are Looking For</h1>
+        </Route>
+
 
 
       </Switch>

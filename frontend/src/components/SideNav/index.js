@@ -13,8 +13,8 @@ function SideNav() {
   const activeStyle = {
     color: "black", 
     fontWeight: "bold", 
-    background: "red", 
-    Border: "red solid 2px"
+    background: "hsl(210deg 8% 95%)", 
+    borderRight: "3px solid hsl(27deg 90% 55%)"
   }
 
 
