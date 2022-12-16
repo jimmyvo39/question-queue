@@ -1,0 +1,118 @@
+.question-index-page {
+    max-width: 750px;
+    padding-top: 24px;
+}
+.question-preview {
+    padding: 10px 20px;
+    border-top: 1px grey solid;
+    display: flex;
+}
+
+.index-head {
+    padding-left: 24px;
+    padding-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+.index-head h1{
+    font-weight: 400;
+}
+.stats {
+    font-size: 14px;
+    padding: 5px;
+    color: hsl(210deg 8% 5%);
+    white-space: nowrap;
+    padding-right: 16px;
+}
+
+.question-preview-text {
+    color: hsl(210deg 8% 45%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#index-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-content: cent
+    
+}
+
+#delete-btn {
+    font-size: 13px;
+    color:#0074CC;
+}
+
+#delete-btn:hover {
+    color: #0A95FF;
+}
+
+.question-asker {
+    align-self: end;
+    display: flex;
+    font-size: 12px;
+    align-items: center;    
+}
+
+#asked {
+    margin: 0 5px;
+}
+
+.asker {
+    color:#0074CC;
+    margin-right: 5px;
+}
+
+.asker:hover {
+    text-decoration: none;
+    color: #0A95FF;
+}
+
+.question-link{
+    line-height: 22px;
+    text-align: left;
+    text-decoration: none;
+    color: #0A95FF;
+}
+
+.question-link:hover{
+    color: #0074CC;
+}
+
+.question-body-preview {
+    color:hsl(210deg 8% 25%);
+    font-size: 13px;
+    line-height: 17px;
+    margin-bottom: 8px;
+
+    overflow: hidden; 
+    word-wrap: break-word; 
+    max-height: 52px;
+    text-overflow: ellipsis " [..]";
+
+}
+.ask-button{
+    font-family:  "system-ui", "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: normal;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+  
+    height: 33px;
+    background-color: #0A95FF;
+    border: 1px solid rgb(122, 167, 199);
+    padding: 8px 10.4px;
+    box-shadow: rgba(255, 255, 255, 0.7) 0px 1px 0px 0px inset;
+    border-radius: 3px;
+  }
+  
+  .ask-button:hover {
+    background-color: #0074CC;
+  }
+
+.index-list {
+    padding-left: 0;
+}

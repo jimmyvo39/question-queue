@@ -1,0 +1,121 @@
+.show-page {
+    max-width: 750px;
+    padding: 24px 16px;
+}
+
+.show-top {
+    justify-content: space-between;
+    display: flex;
+    width: 718px;
+}
+
+h1 {
+    color:hsl(210deg 8% 25%);
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 36.45px;
+}
+.time-stamps {
+    display: flex;
+    margin: 17px auto;
+    font-size: 13px;
+    border-bottom: hsl(210deg 8% 90%) solid 1px;
+    padding-bottom: 17px;
+    width: 718px;
+}
+#asked {
+    
+    color:hsl(210deg 8% 45%);
+    margin: 0 5px;
+}
+#asker {
+    vertical-align: text-top;
+}
+#modified {
+    color: hsl(210deg 8% 45%);
+    margin-left: 20px;
+    margin-right: 5px;
+}
+
+
+
+.ask-button{
+    font-family:  "system-ui", "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+  
+    height: 33px;
+    background-color: #0A95FF;
+    border: 1px solid rgb(122, 167, 199);
+    padding: 8px 10.4px;
+    box-shadow: rgba(255, 255, 255, 0.7) 0px 1px 0px 0px inset;
+    border-radius: 3px;
+    white-space: nowrap;
+    margin-left: 5px;
+  }
+  
+  .ask-button:hover {
+    background-color: #0074CC;
+  }
+
+  #question-body{
+    display: flex;
+
+}
+#question-body h2{
+    
+    color: hsl(210deg 8% 15%); 
+    font-size: 15px;
+    line-height: 22.5px;
+    overflow-wrap: break-word;
+    font-weight:400 ;
+
+}
+
+.vote-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 16px;
+}
+.vote-body svg{
+    fill: rgb(186 191 196);
+}
+
+.vote-body h4 {
+    color: hsl(210deg 8% 45%);
+    font-size: 21px;
+}
+
+#question-bottom-container {
+    
+    margin: 16px 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#question-asker-container {
+    display: flex;
+    flex-direction: column;
+    color: rgb(106, 115, 124);
+    font-size: 13px;
+    background-color: hsl(205deg 53% 88%);
+    height: 66 px;
+    width: 200px;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.edit-delete {
+    color: hsl(210deg 8% 45%);
+    padding: 5px;
+    font-size: 13px;
+}
+.edit-delete:hover {
+    color: hsl(210deg 8% 55%);
+}
+

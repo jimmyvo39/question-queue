@@ -1,0 +1,93 @@
+.form-page {
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+}
+
+body {
+    background-color: hsl(210deg 8% 98%);
+}
+
+#form-heading {
+    color: rgb(35, 38, 41);
+    font-size: 27px;
+    font-weight: 600;
+    margin: 24px 0px;
+}
+
+.question-prompt {
+    background-color: rgb(210, 228, 243);
+    color: rgb(59, 64,69);
+    border-radius: 3px;
+    border:  rgb(140, 200, 246) 1px solid;
+    padding: 24px; 
+}
+.question-prompt h4 {
+    font-size: 21px;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.question-prompt h5 {
+    font-size: 15px;
+    line-height: 20px;
+    
+}
+.question-prompt h6 {
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 17px;
+}
+
+ul {
+    padding-left: 20px;
+    list-style: inside;
+    line-height: 17px;
+    font-size: 13px;
+}
+
+.title-prompt {
+    display: block;
+    background-color: white;
+    color: rgb(59, 64,69);
+    border-radius: 3px;
+    border:  rgb(133, 145, 155) 1px solid;
+}  
+
+#title-prompt-header {
+    border-bottom: rgb(133, 145, 155) 1px solid;
+    display: block;
+    padding-left: 12px;
+    line-height: 20px;
+}
+
+#title-prompt-body {
+    display: flex;
+    padding: 0 12px ;
+    align-items: center;
+}
+
+#title-prompt-body ul{
+    list-style: none;
+    line-height: 20px;
+}
+
+.form-page *{
+    margin: 10px 0;
+}
+
+.form-container {
+    display: block;
+    background-color: white;
+    color: rgb(59, 64,69);
+    border-radius: 3px;
+    border:  rgb(133, 145, 155) 1px solid;
+    padding: 24px;
+}  
+
+.form-container h2{
+    font-size: 15px;
+}
+.form-container h3{
+    font-size: 12px;
+}

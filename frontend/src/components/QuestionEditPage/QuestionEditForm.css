@@ -1,0 +1,53 @@
+.edit-page {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    padding: 24px;
+}
+
+.edit-page *{
+    margin: 10px 0;
+}
+
+.edit-prompt {
+    display: block;
+    background-color:hsl(47deg 87% 94%);
+    color: rgb(59, 64,69);
+    border-radius: 3px;
+    border: hsl(47deg 65% 84%) 1px solid;
+}  
+
+#edit-prompt-header {
+    border-bottom: hsl(47deg 65% 84%) 1px solid;
+    background-color: hsl(47deg 83% 91%);
+    display: block;
+    padding-left: 12px;
+    line-height: 20px;
+}
+
+#edit-prompt-body {
+    display: flex;
+    padding: 0 12px ;
+    align-items: center;
+    padding-right: 50px;
+}
+
+#edit-prompt-body ul{
+    /* list-style: none; */
+    line-height: 20px;
+}
+
+#edit-page-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#edit-page-top #form-heading {
+    margin-left: 12px;
+}
+
+svg.svg-spot {
+    padding: 0 auto;
+    fill:orange;
+}
