@@ -23,7 +23,7 @@ function SideNav() {
     <div className='container'>
       <div className='sidebar'>
         
-        <NavLink to="/" className="link" activeStyle={activeStyle} >Home</NavLink>
+        <NavLink to="/home" className="link" activeStyle={activeStyle} >Home</NavLink>
 
         <h3>PUBLIC</h3>
 

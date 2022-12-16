@@ -1,0 +1,12 @@
+.user-index-page {
+    width: 750px;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.user-index-page * {
+    margin: 24px 0;
+}

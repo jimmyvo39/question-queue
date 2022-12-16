@@ -20,7 +20,7 @@ function SignupFormPage() {
   };
 
   return sessionUser ? (
-    <Redirect to="/" />
+    <Redirect to="/home" />
   ) : (
     <div className="page">
         <button onClick={login} className="demo-button">
