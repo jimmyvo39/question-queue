@@ -10,6 +10,7 @@ import SplashPage from "./components/SplashPage";
 import QuestionFormPage from "./components/QuestionFormPage";
 import QuestionShowPage from "./components/QuestionShowPage";
 import QuestionEditPage from "./components/QuestionEditPage";
+import UserIndexPage from "./components/UserIndexPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -58,7 +59,7 @@ function App() {
         <Route exact path="/">
           {SessionLinks}
         </Route>
-        
+
         <Route exact path="/home">
           {SessionLinks}
         </Route>
@@ -81,7 +82,7 @@ function App() {
 
         <Route  path="/users"  >
           <SideNav />
-          <h1>Status: 404 These Are Not the Droids You Are Looking For</h1>
+          <UserIndexPage/>
         </Route>
 
 
