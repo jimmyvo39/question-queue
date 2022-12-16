@@ -1,6 +1,6 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useSelector } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import LoginFormPage  from "./components/LoginFormPage"
@@ -10,6 +10,14 @@ import SplashPage from "./components/SplashPage";
 import QuestionFormPage from "./components/QuestionFormPage";
 import QuestionShowPage from "./components/QuestionShowPage";
 import QuestionEditPage from "./components/QuestionEditPage";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
@@ -32,8 +40,9 @@ function App() {
     <>
     <Navigation />
     <div className="body">
-      
+    <ScrollToTop/>
       <Switch>
+        
         <Route path="/signup">
           <SignupFormPage />
         </Route>
@@ -51,6 +60,7 @@ function App() {
         </Route>
         
         <Route exact path="/questions"  >
+          
           <SideNav />
           <QuestionIndexPage />
         </Route>

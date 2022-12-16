@@ -15,7 +15,7 @@ ApplicationRecord.transaction do
   puts "Creating users..."
   # Create one demo user with an easy to remember username, email, and password:
   # seed username with matching email name
-  User.create!(username: 'Demo-lition', email: 'demo@user.io', password: 'password') #1
+  User.create!(username: 'DEMO_USER', email: 'demo@user.io', password: 'password') #1
   User.create!(username: 'not_a_seed', email: 'not_a_seed@user.io', password: 'password') #2
   User.create!(username: 'need4seed', email: 'need4seed@user.io', password: 'password') #3
   User.create!(username: 'seedOfLight', email: 'seedOfLight@user.io', password: 'password') #4
@@ -148,12 +148,12 @@ ApplicationRecord.transaction do
   Question.create!(title:'What is the difference between a synchronous and an asynchronous function in JavaScript?', body: 'What is the difference between a synchronous and an asynchronous function in JavaScript?', author_id: 41)
   Question.create!(title:'What is a prototype in JavaScript, and how is it used for inheritance?', body: 'What is a prototype in JavaScript, and how is it used for inheritance?', author_id: 37)
   Question.create!(title:'What is the difference between == and === in JavaScript?', body: 'What is the difference between == and === in JavaScript?', author_id: 17)
-  Question.create!(title:'What is a regular expression in JavaScript, and how is it used for pattern matching?', body: 'What is a regular expression in JavaScript, and how is it used for pattern matching?', author_id: 15)
+  Question.create!(title:'What is a regular expression in JavaScript, and how is it used for pattern matching?', body: 'What is a regular expression in JavaScript, and how is it used for pattern matching?', author_id: 1)
   Question.create!(title:'What is C++ and what are some of its key features?', body: 'What is C++ and what are some of its key features?', author_id: 23)
   Question.create!(title:'What is the difference between a reference and a pointer in C++, and when is each one used?', body: 'What is the difference between a reference and a pointer in C++, and when is each one used?', author_id: 31)
   Question.create!(title:'What are some common C++ data types, and how are they used in a program?', body: 'What are some common C++ data types, and how are they used in a program?', author_id: 4)
   Question.create!(title:'What is the difference between a class and an object in C++, and how are they used to model real-world entities?', body: 'What is the difference between a class and an object in C++, and how are they used to model real-world entities?', author_id: 12)
-  Question.create!(title:'What is polymorphism in C++, and how is it implemented using virtual functions and function overriding?', body: 'What is polymorphism in C++, and how is it implemented using virtual functions and function overriding?', author_id: 10)
+  Question.create!(title:'What is polymorphism in C++, and how is it implemented using virtual functions and function overriding?', body: 'What is polymorphism in C++, and how is it implemented using virtual functions and function overriding?', author_id: 1)
 
 
   puts "Done!"

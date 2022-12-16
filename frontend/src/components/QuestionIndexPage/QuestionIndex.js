@@ -37,7 +37,7 @@ const QuestionIndex = () => {
               </h3>
             </div>
           </div>
-          <ul>{QuestionIndexItems.reverse()}</ul>
+          <ul className="index-list">{QuestionIndexItems.reverse()}</ul>
         </>
     )
 }

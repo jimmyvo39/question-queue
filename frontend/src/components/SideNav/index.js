@@ -29,7 +29,7 @@ function SideNav() {
 
         <NavLink to="/questions" className="link" activeStyle={activeStyle}>
           <div id="question-nav">
-            <Globe/>Question
+            <Globe/>Questions
           </div>
         </NavLink>
 
