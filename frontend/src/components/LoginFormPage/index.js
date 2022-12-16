@@ -13,7 +13,7 @@ function SignupFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
 
   return sessionUser ? (
-    <Redirect to="/" />
+    <Redirect to="/home" />
   ) : (
     
       <div className="page">

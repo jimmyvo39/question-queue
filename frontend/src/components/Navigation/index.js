@@ -16,7 +16,7 @@ function Navigation() {
       {/* <ProfileButton user={sessionUser} /> */}
         <Logo/>
         <div className='text-link'>
-          <Link >About</Link>
+          <a href="https://github.com/jimmyvo39/question-queue#readme" target="_blank" rel="noreferrer">About</a>
         </div>
         <SearchBar/>
         <SvgLinks/>
@@ -74,7 +74,7 @@ function Navigation() {
 
   function Logo() {
     return (
-      <NavLink exact to="/" className="nav-title">
+      <NavLink exact to="/home" className="nav-title">
         <img className="logo" src={logo} alt="logo"></img>
         <h1 className="question">question</h1>
         <h1 className="queue">queue</h1>

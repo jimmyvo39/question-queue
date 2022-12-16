@@ -59,6 +59,10 @@ function App() {
           {SessionLinks}
         </Route>
         
+        <Route exact path="/home">
+          {SessionLinks}
+        </Route>
+        
         <Route exact path="/questions"  >
           
           <SideNav />

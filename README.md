@@ -39,27 +39,70 @@ This project will be implemented with the following technologies:
 - Redux
 - Render
 
-## Highlighting code
+## Highlighting code snippets
  ```javascript
+const sessionUser = useSelector(state => state.session.user);
 
+let sessionLinks;
+
+if (sessionUser) {
+    sessionLinks = (
+        <>
+        <Logo/>
+        <About/>
+        <SearchBar/>
+        <SvgLinks/>
+        <LogoutButton />
+        </>
+    );
+    } else {
+    sessionLinks = (
+        <>
+        <Logo/>
+        <TextLinks/>
+        <SearchBar/>
+        <LoginAndSignup/>
+        </>
+    );
+}
 ```
 
+### Render logic based on login status
+using react-redux's useSelector hook, i check the current state for an existing login. The navbar is rendered with particular componenets depending on the status. 
+
  ```javascript
+   if ( !sessionUser ) {
+    sessionDelete = (
+      <>
+      <div></div>
+      </>
+    )
+  } else if (sessionUser.id === question.authorId) {
+    sessionDelete = (
+      <>
+        <button onClick={handle} id='delete-btn'>DELETE</button>
+      </>
+    );
+  } else {
+    sessionDelete = (
+      <>
+       <div></div>
+      </>
+    );
+  }
 
 ```
+### Render logic based on login status and User ID
 
- ```javascript
-
-```
-
+While any question can be read. logged in users can only edit, update, and delete their own questions. With this logic i render an empty div in place of a delete button if the the question does not belong to the user or their is no one logged in.
 
 
 ## Anticipated updates include:
 - full CRUD functionality for answers
-- Ability to vote
-
+- ability to search
+- ability to vote 
 
 ### Acknowledgement
 [Meyer Web](https://meyerweb.com/eric/tools/css/reset/) - providing CSS Reset
 
-[Stack Overflow](https://stackoverflow.com/) - 
+[Stack Overflow](https://stackoverflow.com/) - provide inpiration and resource for trouble shooting
