@@ -77,14 +77,13 @@ const QuestionIndexItem = ({question}) => {
     <>
            <div className='question-preview'>
           <div className='stats'>
-            <h3>votes</h3>
-            <h3>answers</h3>
-            <h3>views</h3>
+            <h3>0 votes</h3>
+            {/* <h3>answers</h3>
+            <h3>views</h3> */}
           </div>
           <li className='question-preview-text'>
               <button onClick={() => history.push(`/questions/${question.id}`)} 
-                      className="question-link"> {question.title} </button>
-                      
+                className="question-link"> {question.title} </button>
               {/* <Link to={`questions/${question.id}`} className="question-link" >{question.title}</Link> */}
               <h3 className="question-body-preview">{question.body}</h3>
               <div id='index-bottom'>

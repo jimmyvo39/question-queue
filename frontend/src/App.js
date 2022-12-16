@@ -43,7 +43,6 @@ function App() {
         </Route>
 
         <Route path="/new"  >
-          <SideNav />
           <QuestionFormPage />
         </Route>
 

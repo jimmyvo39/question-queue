@@ -19,7 +19,9 @@
 .stats {
     font-size: 14px;
     padding: 5px;
-    color: aliceblue;
+    color: hsl(210deg 8% 5%);
+    white-space: nowrap;
+    padding-right: 16px;
 }
 
 .question-preview-text {
@@ -53,8 +55,7 @@
 }
 
 #asked {
-    margin-right: 5px;
-    margin-left: 5px;
+    margin: 0 5px;
 }
 
 .asker {
@@ -96,7 +97,6 @@
     color: #FFFFFF;
   
     height: 33px;
-      /* width: 59.4531px; */
     background-color: #0A95FF;
     border: 1px solid rgb(122, 167, 199);
     padding: 8px 10.4px;
