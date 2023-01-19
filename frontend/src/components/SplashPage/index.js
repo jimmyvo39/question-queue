@@ -6,7 +6,7 @@ import './SplashPage.css';
 
 function SplashPage() {
   return (
-    <img  src={splash} ></img>
+    // <img  src={splash} ></img>
   );
 }
 
