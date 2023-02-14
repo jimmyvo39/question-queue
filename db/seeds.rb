@@ -155,6 +155,14 @@ ApplicationRecord.transaction do
   Question.create!(title:'What is the difference between a class and an object in C++, and how are they used to model real-world entities?', body: 'What is the difference between a class and an object in C++, and how are they used to model real-world entities?', author_id: 12)
   Question.create!(title:'What is polymorphism in C++, and how is it implemented using virtual functions and function overriding?', body: 'What is polymorphism in C++, and how is it implemented using virtual functions and function overriding?', author_id: 1)
 
+  Answer.create!(body: '85: test answer 1', author_id:1, question_id:85)
+  Answer.create!(body: '85: test answer 2', author_id:2, question_id:85)
+  Answer.create!(body: '85: test answer 3', author_id:3, question_id:85)
+  Answer.create!(body: '26: test answer 1', author_id:1, question_id:26)
+  Answer.create!(body: '26: test answer 2', author_id:2, question_id:26)
+  Answer.create!(body: '26: test answer 3', author_id:3, question_id:26)
+
+
 
   puts "Done!"
 end
