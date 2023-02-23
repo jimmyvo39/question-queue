@@ -14,10 +14,10 @@ export const getAnswers =  (state) => state.answers ? Object.values(state.answer
 
 
 export const fetchAnswers= (questionId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/questions/${questionId}`);
+    const res = await csrfFetch(`/api/questions/${questionId}/answers`);
     const data = await res.json();
-
-    dispatch(receiveAnswers(data.question.answers))
+    console.log(data)
+    dispatch(receiveAnswers(data))
 }
 
 export const createAnswer= (answer) => async (dispatch) => {
@@ -41,7 +41,7 @@ export const updateAnswer= (answer) => async (dispatch) => {
     dispatch(receiveAnswer(data))
 }
 
-export const deleteQuestion= (answerId) => async (dispatch) => {
+export const deleteAnswer= (answerId) => async (dispatch) => {
     await csrfFetch(`/api/answers/${answerId}`,{
         method: "DELETE"
     });
@@ -56,7 +56,9 @@ const answersReducer = (state={},action)=>{
 
     switch(action.type){
         case RECEIVE_ANSWERS:
-            return {...newState,...action.answers};
+            console.log(action.answers)
+            // return {...newState,...action.answers};
+            return {...action.answers};
         case RECEIVE_ANSWER:
             // newState[action.answer.id] = action.answer;
             // return newState;

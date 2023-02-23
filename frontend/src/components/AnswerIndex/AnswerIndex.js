@@ -1,45 +1,43 @@
 import React from "react";
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink} from 'react-router-dom';
-import QuestionIndexItem from './QuestionIndexItem';
-import { getQuestions, fetchQuestions } from '../../store/questions';
+import { NavLink, useParams} from 'react-router-dom';
+import AnswerIndexItem from './AnswerIndexItem';
+import { getAnswers, fetchAnswers } from '../../store/answers';
 
 
 
-const QuestionIndex = () => {
+const AnswerIndex = () => {
     const dispatch = useDispatch();
-    const questions = useSelector(getQuestions);
+    // const page = useParams();
+    const { questionId } = useParams();
 
+    const answers = useSelector(getAnswers);
+    console.log(answers)
+        
     useEffect(()=>{
-        dispatch(fetchQuestions())
-    },[])
-    // debugger
-    const QuestionIndexItems = questions.map(question =>{
-        return <QuestionIndexItem question={question} key={question.id}/>
+      dispatch(fetchAnswers(questionId))
+    },[questionId])
+    
+    const AnswerIndexItems = answers.map(answer =>{
+        return <AnswerIndexItem answer={answer} key={answer.id}/>
     })
-
- 
-    if(!questions){
-      return null
-    }
     
     return(
         <>
           <div>
             <div className="index-head">
-              <h1>All Questions</h1>
-              <NavLink to={`new`} className="ask-button">Ask Question</NavLink>
+              <h1>Answers</h1>
             </div>
             <div className="index-head">
               <h3>
-              {questions.length} questions
+              {answers.length} answers
               </h3>
             </div>
           </div>
-          <ul className="index-list">{QuestionIndexItems.reverse()}</ul>
+          <ul className="index-list">{AnswerIndexItems}</ul>
         </>
     )
 }
 
-export default QuestionIndex
+export default AnswerIndex

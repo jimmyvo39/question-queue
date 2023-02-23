@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getQuestion, fetchQuestion, deleteQuestion } from '../../store/questions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import AnswerIndex from '../AnswerIndex/AnswerIndex.js'
 
 import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago'
@@ -123,6 +124,7 @@ const QuestionShow = () => {
                 </div>
             </div>
             <QuestionBottom/>
+            <AnswerIndex/>
 
         </>
         )

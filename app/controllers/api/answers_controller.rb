@@ -2,7 +2,8 @@ class Api::AnswersController < ApplicationController
   before_action :require_logged_in, only: [:create, :destroy, :update]
 
   def index
-    @answers = Answer.all
+    @question = Question.find(params[:question_id])
+    @answers = @question.answers
   end
 
   def show
@@ -50,6 +51,7 @@ class Api::AnswersController < ApplicationController
 
   def answer_params
     params.require(:answer).permit(:body,:question_id,:author_id, :id)
+    params.require(:question).permit(:id)
   end
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import { useDispatch, useSelector  } from 'react-redux';
-import {deleteQuestion} from "../../store/questions";
+import {deleteAnswer} from "../../store/answers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,7 +13,7 @@ TimeAgo.addDefaultLocale(en)
 TimeAgo.addLocale(ru)
 
 
-const QuestionIndexItem = ({question}) => {
+const AnswerIndexItem = ({answer}) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -22,7 +22,7 @@ const QuestionIndexItem = ({question}) => {
 
   const handle = (e)=> {
     e.preventDefault()
-    dispatch(deleteQuestion(question.id))
+    dispatch(deleteAnswer(answer.id))
     history.push(`/questions`)
   }
 
@@ -33,7 +33,7 @@ const QuestionIndexItem = ({question}) => {
       <div></div>
       </>
     )
-  } else if (sessionUser.id === question.authorId) {
+  } else if (sessionUser.id === answer.authorId) {
     sessionDelete = (
       <>
         <button onClick={handle} id='delete-btn'>DELETE</button>
@@ -63,9 +63,9 @@ const QuestionIndexItem = ({question}) => {
         <div className='asker'>
           <FontAwesomeIcon icon={faUser} style={userIcon} />
         </div>
-        {question.username}
+        {answer.username}
         <h3 id='asked'> asked</h3>
-        <ReactTimeAgo date={question.createdAt} locale="en-US"/>
+        <ReactTimeAgo date={answer.createdAt} locale="en-US"/>
       </h3>
     )
   }
@@ -82,10 +82,8 @@ const QuestionIndexItem = ({question}) => {
             <h3>views</h3> */}
           </div>
           <li className='question-preview-text'>
-              <button onClick={() => history.push(`/questions/${question.id}`)} 
-                className="question-link"> {question.title} </button>
-              {/* <Link to={`questions/${question.id}`} className="question-link" >{question.title}</Link> */}
-              <h3 className="question-body-preview">{question.body}</h3>
+
+              <h3 className="question-body-preview">{answer.body}</h3>
               <div id='index-bottom'>
                 {sessionDelete}
                 <UserName/>
@@ -96,4 +94,4 @@ const QuestionIndexItem = ({question}) => {
   )
 }
 
-export default QuestionIndexItem
+export default AnswerIndexItem
