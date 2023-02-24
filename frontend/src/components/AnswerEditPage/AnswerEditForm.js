@@ -96,4 +96,8 @@ const Prompt = () => {
   );
 }
 
+<<<<<<< HEAD
 export default Ans`werEditForm;`
+=======
+export default AnswerEditForm;
+>>>>>>> 9daf579ebbd9f457f14115756283441851aa5160
