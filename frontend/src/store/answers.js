@@ -9,7 +9,7 @@ export const receiveAnswer = (answer) => ({type: RECEIVE_ANSWER, answer});
 export const removeAnswer = (answerId) => ({type: REMOVE_ANSWER, answerId});
 
 
-
+export const getAnswer = (answersId) => (state) => state.answers ? state.answers[answersId] : null;
 export const getAnswers =  (state) => state.answers ? Object.values(state.answers) : [];
 
 
@@ -17,6 +17,12 @@ export const fetchAnswers= (questionId) => async (dispatch) => {
     const res = await csrfFetch(`/api/questions/${questionId}/answers`);
     const data = await res.json();
     dispatch(receiveAnswers(data))
+}
+
+export const fetchAnswer= (questionId,answerId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/questions/${questionId}/answers/${answerId}`);
+    const data = await res.json();
+    dispatch(receiveAnswer(data.answer))
 }
 
 export const createAnswer= (answer) => async (dispatch) => {

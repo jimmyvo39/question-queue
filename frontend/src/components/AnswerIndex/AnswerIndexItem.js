@@ -27,6 +27,12 @@ const AnswerIndexItem = ({answer}) => {
     history.push(`/questions/${questionId}`);
   }
 
+  const edit = (e)=> {
+    e.preventDefault();
+    console.log(e)
+    history.push(`/questions/${questionId}/answers/${answer.id}`);
+  }
+
 
   if ( !sessionUser ) {
     sessionDelete = (
@@ -37,7 +43,12 @@ const AnswerIndexItem = ({answer}) => {
   } else if (sessionUser.id === answer.authorId) {
     sessionDelete = (
       <>
-        <button onClick={handle} id='delete-btn'>DELETE</button>
+        <>
+          <button onClick={handle} id='delete-btn'>DELETE</button>
+        </>
+        <>
+          <button onClick={edit} id='delete-btn'>EDIT</button>
+        </>
       </>
     );
   } else {

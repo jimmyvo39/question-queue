@@ -10,6 +10,7 @@ import SplashPage from "./components/SplashPage";
 import QuestionFormPage from "./components/QuestionFormPage";
 import QuestionShowPage from "./components/QuestionShowPage";
 import QuestionEditPage from "./components/QuestionEditPage";
+import AnswerEditPage from "./components/AnswerEditPage";
 import UserIndexPage from "./components/UserIndexPage";
 
 function ScrollToTop() {
@@ -78,6 +79,11 @@ function App() {
         <Route  path="/questions/:questionId/edit"  >
           <SideNav />
           <QuestionEditPage />
+        </Route>
+
+        <Route  path="/questions/:questionId/answers/:answerId"  >
+          <SideNav />
+          <AnswerEditPage />
         </Route>
 
         <Route  path="/users"  >
