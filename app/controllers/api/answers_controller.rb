@@ -11,13 +11,12 @@ class Api::AnswersController < ApplicationController
   end
 
   def create
+
     @answer = Answer.new(answer_params)
     @answer.author_id = @current_user.id
 
 
     if @answer.save!
-      # render :index
-      # render :show
       render json: @answer
     else 
       render json: { errors: @answer.errors.full_messages }, status: :unprocessable_entity
@@ -50,8 +49,8 @@ class Api::AnswersController < ApplicationController
   private 
 
   def answer_params
-    params.require(:answer).permit(:body,:question_id,:author_id, :id)
-    params.require(:question).permit(:id)
+    params.require(:answer).permit(:body,:question_id,:author_id)
+
   end
 
 

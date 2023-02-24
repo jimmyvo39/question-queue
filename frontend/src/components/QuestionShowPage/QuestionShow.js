@@ -5,6 +5,7 @@ import { getQuestion, fetchQuestion, deleteQuestion } from '../../store/question
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import AnswerIndex from '../AnswerIndex/AnswerIndex.js'
+import AnswerFormBox from '../AnswerForm';
 
 import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago'
@@ -124,6 +125,7 @@ const QuestionShow = () => {
                 </div>
             </div>
             <QuestionBottom/>
+            <AnswerFormBox/>
             <AnswerIndex/>
 
         </>

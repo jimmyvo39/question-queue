@@ -9,11 +9,9 @@ import { getAnswers, fetchAnswers } from '../../store/answers';
 
 const AnswerIndex = () => {
     const dispatch = useDispatch();
-    // const page = useParams();
     const { questionId } = useParams();
 
     const answers = useSelector(getAnswers);
-    console.log(answers)
         
     useEffect(()=>{
       dispatch(fetchAnswers(questionId))

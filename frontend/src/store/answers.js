@@ -16,12 +16,11 @@ export const getAnswers =  (state) => state.answers ? Object.values(state.answer
 export const fetchAnswers= (questionId) => async (dispatch) => {
     const res = await csrfFetch(`/api/questions/${questionId}/answers`);
     const data = await res.json();
-    console.log(data)
     dispatch(receiveAnswers(data))
 }
 
 export const createAnswer= (answer) => async (dispatch) => {
-    const res = await csrfFetch(`/api/answers`,{
+    const res = await csrfFetch(`/api/questions/${answer.questionId}/answers`,{
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(answer),
         method: "POST"
@@ -41,8 +40,8 @@ export const updateAnswer= (answer) => async (dispatch) => {
     dispatch(receiveAnswer(data))
 }
 
-export const deleteAnswer= (answerId) => async (dispatch) => {
-    await csrfFetch(`/api/answers/${answerId}`,{
+export const deleteAnswer= (questionId,answerId) => async (dispatch) => {
+    await csrfFetch(`/api/questions/${questionId}/answers/${answerId}`,{
         method: "DELETE"
     });
 
@@ -56,7 +55,6 @@ const answersReducer = (state={},action)=>{
 
     switch(action.type){
         case RECEIVE_ANSWERS:
-            console.log(action.answers)
             // return {...newState,...action.answers};
             return {...action.answers};
         case RECEIVE_ANSWER:

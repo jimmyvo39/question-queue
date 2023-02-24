@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {Link, useHistory, useParams} from 'react-router-dom';
 import { useDispatch, useSelector  } from 'react-redux';
 import {deleteAnswer} from "../../store/answers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,6 +14,7 @@ TimeAgo.addLocale(ru)
 
 
 const AnswerIndexItem = ({answer}) => {
+  const {questionId} = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -21,9 +22,9 @@ const AnswerIndexItem = ({answer}) => {
  
 
   const handle = (e)=> {
-    e.preventDefault()
-    dispatch(deleteAnswer(answer.id))
-    history.push(`/questions`)
+    e.preventDefault();
+    dispatch(deleteAnswer(questionId,answer.id));
+    history.push(`/questions/${questionId}`);
   }
 
 
