@@ -1,12 +1,16 @@
 import csrfFetch from "./csrf.js";
 
 export const RECEIVE_QUESTIONS = "questions/RECEIVE_QUESTIONS";
+
 export const RECEIVE_QUESTION = "questions/RECEIVE_QUESTION";
 export const REMOVE_QUESTION = "questions/REMOVE_QUESTION";
+export const SEARCH_QUESTIONS = "questions/SEARCH_QUESTIONS";
+
 
 export const receiveQuestions = (questions) => ({type: RECEIVE_QUESTIONS, questions});
 export const receiveQuestion = (question) => ({type: RECEIVE_QUESTION, question});
 export const removeQuestion = (questionId) => ({type: REMOVE_QUESTION, questionId});
+
 
 
 export const getQuestion = (questionId) => (state) => state.questions ? state.questions[questionId] : null;
@@ -18,7 +22,6 @@ export const fetchQuestions= () => async (dispatch) => {
     const res = await csrfFetch(`/api/questions`);
     const data = await res.json();
     dispatch(receiveQuestions(data))
-
 }
 
 export const fetchQuestion= (questionId) => async (dispatch) => {
@@ -27,6 +30,16 @@ export const fetchQuestion= (questionId) => async (dispatch) => {
     // debugger
     dispatch(receiveQuestion(data.question))
 }
+
+
+export const searchQuestions = (query) => async (dispatch) => {
+
+    const res = await csrfFetch(`/api/questions/search?query=${query}`);
+    const data = await res.json();
+    console.log(data);
+    dispatch({ type: SEARCH_QUESTIONS, questions: data });
+};
+
 
 export const createQuestion= (question) => async (dispatch) => {
     const res = await csrfFetch(`/api/questions`,{
@@ -63,19 +76,21 @@ const questionsReducer = (state={},action)=>{
     const newState = {...state};
 
     switch(action.type){
+
         case RECEIVE_QUESTIONS:
             return {...newState,...action.questions};
         case RECEIVE_QUESTION:
-            // newState[action.question.id] = action.question;
-            // return newState;
             return{
                 [action.question.id]: action.question
             }
         case REMOVE_QUESTION:
             delete newState[action.questionId];
             return newState;
+        case SEARCH_QUESTIONS:
+            return {...action.questions};
         default:
             return state
+
     }
 }
 

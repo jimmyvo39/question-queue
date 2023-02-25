@@ -2,8 +2,7 @@ class Api::QuestionsController < ApplicationController
   before_action :require_logged_in, only: [:create, :destroy, :update]
 
   def search
-    query = params[:query]
-    @questions = Question.where("title LIKE ? OR body LIKE ?", "%#{query}%", "%#{query}%")
+    @questions = Question.where('title LIKE ?', "%#{params[:query]}%")
   end
 
   def index

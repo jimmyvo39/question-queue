@@ -66,7 +66,6 @@ function App() {
         </Route>
         
         <Route exact path="/questions"  >
-          
           <SideNav />
           <QuestionIndexPage />
         </Route>
@@ -80,6 +79,13 @@ function App() {
           <SideNav />
           <QuestionEditPage />
         </Route>
+
+        <Route  path="/questions/:query"  >
+          <SideNav />
+          <QuestionIndexPage />
+        </Route>
+
+        
 
         <Route  path="/questions/:questionId/answers/:answerId"  >
           <SideNav />

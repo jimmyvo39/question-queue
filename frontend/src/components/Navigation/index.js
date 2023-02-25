@@ -5,6 +5,8 @@ import LogoutButton from './LogoutButton';
 import './Navigation.css';
 import { Input } from '../Forms';
 import logo from '../../asset/logo.png';
+import SearchBar from './SearchBar';
+
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -88,15 +90,15 @@ function Navigation() {
     )
   }
 
-  function SearchBar() {
-    return (
-      <div className='search-container'>
+  // function SearchBar() {
+  //   return (
+  //     <div className='search-container'>
 
-        <Input className="search" type="text" placeholder="Search soon..."></Input>
-      </div>
+  //       <Input className="search" type="text" placeholder="Search soon..."></Input>
+  //     </div>
 
-    )
-  }
+  //   )
+  // }
 
 
 
