@@ -1,6 +1,11 @@
 class Api::QuestionsController < ApplicationController
   before_action :require_logged_in, only: [:create, :destroy, :update]
 
+  def search
+    query = params[:query]
+    @questions = Question.where("title LIKE ? OR body LIKE ?", "%#{query}%", "%#{query}%")
+  end
+
   def index
     @questions = Question.all
   end
@@ -49,7 +54,7 @@ class Api::QuestionsController < ApplicationController
   private 
 
   def question_params
-    params.require(:question).permit(:title,:body,:author_id, :id)
+    params.require(:question).permit(:title,:body,:author_id, :id, :query)
   end
 
 
