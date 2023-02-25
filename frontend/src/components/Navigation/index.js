@@ -90,15 +90,7 @@ function Navigation() {
     )
   }
 
-  // function SearchBar() {
-  //   return (
-  //     <div className='search-container'>
 
-  //       <Input className="search" type="text" placeholder="Search soon..."></Input>
-  //     </div>
-
-  //   )
-  // }
 
 
 

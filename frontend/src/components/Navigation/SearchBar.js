@@ -21,8 +21,8 @@ const SearchBar = () => {
 
   return (
     <form onSubmit={handleSubmit} className='search-container'>
-      <input type="text" value={query} placeholder="Search soon..." onChange={(e) => setQuery(e.target.value)} />
-      <button type="submit">Search</button>
+      <input className="search" type="text" value={query} placeholder="Search..." onChange={(e) => setQuery(e.target.value)} />
+      {/* <button type="submit">Search</button> */}
     </form>
   );
 };

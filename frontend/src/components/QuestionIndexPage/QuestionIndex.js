@@ -23,6 +23,8 @@ const QuestionIndex = () => {
     if(!questions){
       return null
     }
+    const returnNum = questions.length === 0 ? "0 Questions match your query" : `${questions.length} questions`
+
     
     return(
         <>
@@ -33,7 +35,8 @@ const QuestionIndex = () => {
             </div>
             <div className="index-head">
               <h3>
-              {questions.length} questions
+              {/* {questions.length} questions */}
+              {returnNum}
               </h3>
             </div>
           </div>
