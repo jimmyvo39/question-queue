@@ -192,7 +192,7 @@ ApplicationRecord.transaction do
 
 # Seed random votes for answer
 
-50.times do
+400.times do
   begin
     user_id = rand(1..49)
     answer_id = rand(1..10)
@@ -213,7 +213,7 @@ end
 
 
 # Seed random votes for question
-50.times do
+4000.times do
   begin
     user_id = rand(1..49)
     question_id = rand(1..86)

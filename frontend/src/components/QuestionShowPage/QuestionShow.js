@@ -76,7 +76,7 @@ const QuestionShow = () => {
         return (
             <>
                 <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 25h32L18 9 2 25Z"></path></svg>
-                <h4>0</h4>
+                <h4>{question.votesCount}</h4>
                 <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 11h32L18 27 2 11Z"></path></svg>
             </>
         )
