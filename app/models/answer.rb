@@ -10,5 +10,9 @@ class Answer < ApplicationRecord
   belongs_to :question,
   class_name: :Question,
   primary_key: :id, 
-  foreign_key: :question_id
+  foreign_key: :question_id,
+  dependent: :destroy
+
+  has_many :votes, as: :voteable, 
+  dependent: :destroy
 end
