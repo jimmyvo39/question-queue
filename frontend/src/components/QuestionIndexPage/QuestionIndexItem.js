@@ -77,9 +77,8 @@ const QuestionIndexItem = ({question}) => {
     <>
            <div className='question-preview'>
           <div className='stats'>
-            <h3>0 votes</h3>
-            {/* <h3>answers</h3>
-            <h3>views</h3> */}
+            <h3>{question.votesCount} votes</h3>
+            <h3>{question.answerCount} answers</h3>
           </div>
           <li className='question-preview-text'>
               <button onClick={() => history.push(`/questions/${question.id}`)} 

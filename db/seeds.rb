@@ -3,12 +3,14 @@ ApplicationRecord.transaction do
   # Unnecessary if using `rails db:seed:replant`
   Question.destroy_all
   User.destroy_all
+  Answer.destroy_all
+  Vote.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   # ApplicationRecord.connection.reset_pk_sequence!('users')
 
-  %w(users questions).each do |table_name|
+  %w(users questions answers votes).each do |table_name|
     ApplicationRecord.connection.reset_pk_sequence!(table_name)
   end
 
@@ -155,12 +157,81 @@ ApplicationRecord.transaction do
   Question.create!(title:'What is the difference between a class and an object in C++, and how are they used to model real-world entities?', body: 'What is the difference between a class and an object in C++, and how are they used to model real-world entities?', author_id: 12)
   Question.create!(title:'What is polymorphism in C++, and how is it implemented using virtual functions and function overriding?', body: 'What is polymorphism in C++, and how is it implemented using virtual functions and function overriding?', author_id: 1)
 
-  Answer.create!(body: '85: test answer 1', author_id:1, question_id:85)
-  Answer.create!(body: '85: test answer 2', author_id:2, question_id:85)
-  Answer.create!(body: '85: test answer 3', author_id:3, question_id:85)
-  Answer.create!(body: '26: test answer 1', author_id:1, question_id:26)
-  Answer.create!(body: '26: test answer 2', author_id:2, question_id:26)
-  Answer.create!(body: '26: test answer 3', author_id:3, question_id:26)
+  puts "Questions seeded, creating answers..."
+
+  Answer.create!(question_id:86, author_id:1,body:'Polymorphism in C++ allows objects of different types to be treated as if they were of the same type, while still exhibiting unique behavior based on their individual characteristics. This is implemented through virtual functions, which are functions declared in a base class and intended to be overridden in derived classes, and function overriding, which occurs when a derived class provides its own implementation of a virtual function declared in a base class. This allows objects of the derived class to exhibit their own behavior while still being treated as if they were of the same type as objects of the base class.' )
+  Answer.create!(question_id:86, author_id:2,body:'Polymorphism in C++ is achieved through virtual functions and function overriding, which allow objects of different types to exhibit unique behavior while still being treated as if they were of the same type.' )
+
+  Answer.create!(question_id:85, author_id:45,body:'In C++, a class is a blueprint or template for creating objects, while an object is an instance of a class that represents a specific entity in the real world. A class defines the attributes (data members) and behaviors (member functions) of an object, while an object is a concrete representation of those attributes and behaviors. For example, a class "Car" could have data members such as make, model, and color, and member functions such as start and stop. An object of the class "Car" could represent a specific car with its own make, model, color, and ability to start and stop. Classes and objects are used in C++ to model real-world entities by defining their characteristics and behaviors in code, allowing for efficient and organized representation and manipulation of data in software programs.' )
+  Answer.create!(question_id:85, author_id:1,body:'In C++, a class is a template for creating objects, while an object is an instance of a class that represents a real-world entity. A class defines attributes (data members) and behaviors (member functions), while an object is a concrete representation of those attributes and behaviors. Classes and objects are used in C++ to model real-world entities by defining their characteristics and behaviors in code, allowing for efficient and organized representation and manipulation of data in software programs.')
+
+  Answer.create!(question_id:84, author_id:1,body:'C++ has several built-in data types that are commonly used in programs. Some of the most common data types include:
+
+  Integers: used to store whole numbers (positive, negative, or zero). They can be of different sizes, such as short, int, long, and long long.
+  
+  Floating-point numbers: used to store real numbers with a fractional part. They can be of different sizes, such as float and double.
+  
+  Characters: used to store a single character, such as a letter or symbol. They are typically stored as ASCII codes.
+  
+  Booleans: used to represent true or false values.
+  
+  Arrays: used to store multiple values of the same data type in a single variable.
+  
+  Pointers: used to store memory addresses of variables and objects.
+  
+  These data types are used in C++ programs to represent and manipulate different kinds of data. For example, integers and floating-point numbers are used for calculations, characters are used for text processing, booleans are used for decision-making, and arrays and pointers are used for data structures and memory management. By using the appropriate data type for each task, programs can efficiently store and process data.' )
+  Answer.create!(question_id:84, author_id:1,body:'C++ has several built-in data types that are used to represent different kinds of data in programs. These data types include integers (short, int, long, long long), floating-point numbers (float, double), characters (ASCII codes), booleans, arrays, and pointers. By choosing the appropriate data type for each task, programmers can efficiently store and manipulate data in their programs.' )
+
+  Answer.create!(question_id:83, author_id:15,body:'In C++, a reference is a variable that is an alias for another variable, while a pointer is a variable that stores the memory address of another variable. References are often used to make function parameters more concise and readable, while pointers are commonly used for dynamic memory allocation and data structures such as linked lists and trees. References cannot be null and must be initialized to refer to a valid object, while pointers can be null and can be used to traverse arrays and access elements in memory. When used properly, both references and pointers can improve code efficiency and readability.' )
+  Answer.create!(question_id:83, author_id:30,body:'In C++, a reference is like a nickname for a person, while a pointer is like a map that shows where a person lives. Just like a nickname, a reference lets you use a shorter name for something else in your program. A pointer helps you find something in your computer memory, like finding a house on a map. References are good for making code easier to read, while pointers are useful for finding things and keeping track of where they are.' )
+
+  Answer.create!(question_id:82, author_id:20,body:'C++ is a programming language that was created in 1983 and is still widely used today. It is an extension of the C programming language and includes additional features like object-oriented programming, templates, and exception handling. Some of the key features of C++ include its ability to create efficient and fast programs, its flexibility in programming styles, and its compatibility with C code. Overall, C++ is a powerful language that can be used for a wide range of applications, including game development, scientific computing, and system programming.' )
+  Answer.create!(question_id:82, author_id:1,body:'C++ is a fancy way to talk to computers and tell them what to do. Its like giving them a set of instructions to follow to get things done. Its like playing with Lego blocks, where you can create all sorts of cool things. C++ is special because it has many tools that help people write programs that run very quickly and efficiently. Its like using a turbo engine to make your car go faster. With C++, you can make' )
+
+    puts "Answers seeded, creating votes..."
+
+# Seed random votes for answer
+
+400.times do
+  begin
+    user_id = rand(1..49)
+    answer_id = rand(1..10)
+    value = [-1, 1].sample
+
+    Vote.create!(
+      user_id: user_id,
+      value: value,
+      votable_type: 'Answer',
+      votable_id: answer_id
+    )
+    puts "an answer vote was seeded"
+  rescue ActiveRecord::RecordInvalid => e
+    puts "Failed to seed vote: #{e.message}. Retrying..."
+    retry
+  end
+end
+
+
+# Seed random votes for question
+4000.times do
+  begin
+    user_id = rand(1..49)
+    question_id = rand(1..86)
+    value = [-1, 1].sample
+
+    Vote.create!(
+      user_id: user_id,
+      value: value,
+      votable_type: 'Question',
+      votable_id: question_id
+    )
+    puts "an question vote was seeded"
+  rescue ActiveRecord::RecordInvalid => e
+    puts "Failed to seed vote: #{e.message}. Retrying..."
+    retry
+  end
+end
+
 
 
 

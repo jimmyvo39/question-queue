@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import AnswerIndex from '../AnswerIndex/AnswerIndex.js'
 import AnswerFormBox from '../AnswerForm';
+import QuestionVotes from './QuestionVotes';
 
 import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago'
@@ -26,7 +27,7 @@ const QuestionShow = () => {
 
     useEffect(()=>{
         dispatch(fetchQuestion(questionId))
-    },[questionId])
+    },[questionId,dispatch])
 
     if (!question){
         return null
@@ -76,7 +77,7 @@ const QuestionShow = () => {
         return (
             <>
                 <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 25h32L18 9 2 25Z"></path></svg>
-                <h4>0</h4>
+                <h4>{question.votesCount}*</h4>
                 <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 11h32L18 27 2 11Z"></path></svg>
             </>
         )
@@ -118,7 +119,8 @@ const QuestionShow = () => {
         <> 
             <div id='question-body'>
                 <div className='vote-body'>
-                    <Vote  />
+                    <QuestionVotes />
+                    <Vote/>
                 </div>
                 <div>
                     <h2>{question.body}</h2>

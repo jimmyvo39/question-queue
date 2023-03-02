@@ -83,15 +83,21 @@ const AnswerIndexItem = ({answer}) => {
   }
 
 
-
+  const Vote = () => {
+    return (
+        <>
+            <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 25h32L18 9 2 25Z"></path></svg>
+            <h4>{answer.votesCount}</h4>
+            <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 11h32L18 27 2 11Z"></path></svg>
+        </>
+    )
+}
 
   return(
     <>
            <div className='question-preview'>
           <div className='stats'>
-            <h3>0 votes</h3>
-            {/* <h3>answers</h3>
-            <h3>views</h3> */}
+            <Vote/>
           </div>
           <li className='question-preview-text'>
 
