@@ -80,7 +80,7 @@ function App() {
           <QuestionEditPage />
         </Route>
 
-        <Route  path="/questions/:query"  >
+        <Route exact path="/questions/:query"  >
           <SideNav />
           <QuestionIndexPage />
         </Route>
