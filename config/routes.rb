@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :questions, only: [:index, :show, :create, :destroy, :update] do
-      member do
-        post 'upvote'
-        post 'downvote'
-      end
+        post 'upvote', to: 'votes#upvote', defaults: { votable_type: 'Question' }
+        post 'downvote', to: 'votes#downvote', defaults: { votable_type: 'Question' }
       collection do
         get :search
       end
       resources :answers, only: [:index, :show, :create, :destroy, :update] do
         member do
-          post 'upvote'
-          post 'downvote'
+          post 'upvote', to: 'votes#upvote', defaults: { votable_type: 'Answer' }
+          post 'downvote', to: 'votes#downvote', defaults: { votable_type: 'Answer' }
         end
       end
     end
@@ -19,9 +17,6 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
   end
 
-
-  
-# below all routes
+  # below all routes
   get '*path', to: "static_pages#frontend_index"
-
 end

@@ -6,8 +6,9 @@ export const REMOVE_VOTE = "votes/REMOVE_VOTE";
 export const receiveVote = (vote) => ({ type: RECEIVE_VOTE, vote });
 export const removeVote = (votableId) => ({ type: REMOVE_VOTE, votableId });
 
-export const upvote = (votableType, votableId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/${votableType}/${votableId}/upvote`, {
+export const upvote = (vote) => async (dispatch) => {
+  console.log(vote)
+  const res = await csrfFetch(`/api/${vote.type}/${vote.id}/upvote`, {
     method: "POST",
   });
   const data = await res.json();

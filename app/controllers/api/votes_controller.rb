@@ -1,5 +1,5 @@
-class VotesController < ApplicationController
-  before_action :require_login
+class Api::VotesController < ApplicationController
+  before_action :require_logged_in
 
   def upvote
     vote(1)
@@ -16,16 +16,13 @@ class VotesController < ApplicationController
     @vote = @votable.votes.find_or_initialize_by(user_id: current_user.id)
 
     if @vote.value == value
-      # User is neutralizing their vote.
-      # to preserve space vote is destroyed from the table rather than updating with a 0 value.
       @vote.destroy
     else
-      # User is changing their vote or voting for the first time
       @vote.value = value
       @vote.save
     end
 
-    redirect_to question_path(@votable)
+    render json: { votable_type: @votable.class.name, votable_id: @votable.id, value: @vote.value }
   end
 
   def find_votable
