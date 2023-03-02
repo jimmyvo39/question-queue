@@ -16,11 +16,13 @@ class Question < ApplicationRecord
   belongs_to :author,
   class_name: :User,
   primary_key: :id, 
-  foreign_key: :author_id
+  foreign_key: :author_id,
+  dependent: :destroy
 
   has_many :answers,
   class_name: :Answer,
   primary_key: :id,
-  foreign_key: :question_id
+  foreign_key: :question_id,
+  dependent: :destroy
 
 end

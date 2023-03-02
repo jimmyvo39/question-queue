@@ -1,6 +1,7 @@
 ApplicationRecord.transaction do 
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
+  Answer.destroy_all
   Question.destroy_all
   User.destroy_all
 
