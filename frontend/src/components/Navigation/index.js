@@ -6,10 +6,16 @@ import './Navigation.css';
 import { Input } from '../Forms';
 import logo from '../../asset/logo.png';
 import SearchBar from './SearchBar';
+import { fetchQuestions } from '../../store/questions';
+import { useDispatch } from 'react-redux';
 
 
 function Navigation() {
+  const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
+  const handleClick = () => {
+    dispatch(fetchQuestions())
+  };
 
   let sessionLinks;
   if (sessionUser) {
@@ -67,7 +73,7 @@ function Navigation() {
   function TextLinks() {
     return(
     <div className='text-link'>
-      <Link to={'/questions'}>Questions</Link>
+      <Link onClick={handleClick} to={'/questions'}>Questions</Link>
       <a href="https://github.com/jimmyvo39" target="_blank" rel="noreferrer">Github</a>
       <a href="https://www.linkedin.com/in/jimmy-vo-02a5043b/" target="_blank" rel="noreferrer">LinkedIn</a>
     </div>
