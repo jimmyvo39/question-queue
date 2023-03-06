@@ -1,25 +1,35 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getVote, removeVote, upvote, downvote } from '../../store/votes';
+import { removeVote, upvote, downvote } from '../../store/votes';
 
 const Vote = ({ question }) => {
-  console.log(question.id)
+    const sessionUser = useSelector(state => state.session.user);
+
   const dispatch = useDispatch();
   const questionId = question.id;
 
-  const vote = useSelector(getVote(questionId));
-  console.log(vote)
+  
+  const getVote = (questionId, userId) => {
+      return (state) => {
+          const votes = state.questions[questionId]?.votes || [];
+          const vote = votes.find((vote) => vote.user_id === userId);
+          return vote ? vote : null;
+        };
+    };
+    
+    const vote = useSelector(getVote(questionId,sessionUser.id));
 
-  const [voteStatus, setVoteStatus] = useState(vote ? vote.type : null);
+
+    const currentStatus = (vote) => {
+        return vote ? (vote.value === 1 ? 'upvote' : 'downvote') : null;
+    };
+    const [voteStatus, setVoteStatus] = useState(currentStatus(vote));
+    console.log(currentStatus(vote))
+  console.log(voteStatus)
   const [voteCount, setVoteCount] = useState(question.votesCount);
 
   useEffect(() => {
-    console.log(vote)
-    if (vote) {
-      setVoteStatus(vote.type);
-    } else {
-      setVoteStatus(null);
-    }
+    setVoteStatus(currentStatus(vote));
   }, [vote]);
 
   useEffect(() => {
@@ -28,6 +38,7 @@ const Vote = ({ question }) => {
 
   const upvoteColor = voteStatus === 'upvote' ? 'orange' : 'grey';
   const downvoteColor = voteStatus === 'downvote' ? 'orange' : 'grey';
+  
 
   function handleUpvote() {
     if (voteStatus === 'upvote') {
