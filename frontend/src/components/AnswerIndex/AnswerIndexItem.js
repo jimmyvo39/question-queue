@@ -89,7 +89,7 @@ const AnswerIndexItem = ({answer}) => {
     <>
            <div className='question-preview'>
           <div className='stats'>
-            <h3>{answer.votesCount}</h3>
+            {/* <h3>{answer.votesCount}</h3> */}
           </div>
           <li className='question-preview-text'>
 

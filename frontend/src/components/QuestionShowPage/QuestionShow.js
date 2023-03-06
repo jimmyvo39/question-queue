@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import AnswerIndex from '../AnswerIndex/AnswerIndex.js'
 import AnswerFormBox from '../AnswerForm';
-import Vote from './Vote';
+// import Vote from './Vote';
+import Vote from '../Votes/Votes';
 
 import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago'
@@ -44,12 +45,12 @@ const QuestionShow = () => {
 
 
 
-        if (!sessionUser) {
+    if (!sessionUser) {
         sessionMod = (
         <>
         </>
         );
-    } else if (sessionUser.id === question.authorId) {
+        } else if (sessionUser.id === question.authorId) {
         sessionMod = (
             <>
                 <div >
@@ -73,11 +74,8 @@ const QuestionShow = () => {
         )
     }
 
-
-
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
     const randomColorBG = Math.floor(Math.random()*16777215).toString(16);
-
     const userIcon = {
         margin: '5px',
         color: `#${randomColor}`, 
@@ -85,7 +83,6 @@ const QuestionShow = () => {
         padding: '7px',
         borderRadius: '2px'
       }
-
 
     const QuestionBottom = () => {
         return(
@@ -124,7 +121,6 @@ const QuestionShow = () => {
         </>
         )
     }
-
 
     return(
         <>
