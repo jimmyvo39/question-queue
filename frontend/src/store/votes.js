@@ -26,15 +26,14 @@ export const downvote = (vote) => async (dispatch) => {
 };
 
 // Selectors
-export const getVote = (votableId) => {
+export const getVote = (questionId, userId) => {
   return (state) => {
-    console.log(state)
-    if (state.votes && state.votes.votes && state.votes.votes[votableId]) {
-      return state.votes.votes[votableId];
-    }
-    return null;
+    const votes = state.questions[questionId]?.votes || [];
+    const vote = votes.find((vote) => vote.user_id === userId);
+    return vote ? vote : null;
   };
 };
+
 
 // Reducer
 const initialState = {
