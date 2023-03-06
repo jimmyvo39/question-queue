@@ -82,9 +82,9 @@ h1 {
     align-items: center;
     margin-right: 16px;
 }
-.vote-body svg{
+/* .vote-body svg{
     fill: rgb(186 191 196);
-}
+} */
 
 .vote-body h4 {
     color: hsl(210deg 8% 45%);

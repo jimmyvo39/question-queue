@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import AnswerIndex from '../AnswerIndex/AnswerIndex.js'
 import AnswerFormBox from '../AnswerForm';
+// import Vote from './Vote';
+import Vote from '../Votes/Votes';
 
 import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago'
@@ -43,12 +45,12 @@ const QuestionShow = () => {
 
 
 
-        if (!sessionUser) {
+    if (!sessionUser) {
         sessionMod = (
         <>
         </>
         );
-    } else if (sessionUser.id === question.authorId) {
+        } else if (sessionUser.id === question.authorId) {
         sessionMod = (
             <>
                 <div >
@@ -72,19 +74,8 @@ const QuestionShow = () => {
         )
     }
 
-    const Vote = () => {
-        return (
-            <>
-                <svg aria-hidden="true" class="svg-icon iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 25h32L18 9 2 25Z"></path></svg>
-                <h4>0</h4>
-                <svg aria-hidden="true" class="svg-icon iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 11h32L18 27 2 11Z"></path></svg>
-            </>
-        )
-    }
-
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
     const randomColorBG = Math.floor(Math.random()*16777215).toString(16);
-
     const userIcon = {
         margin: '5px',
         color: `#${randomColor}`, 
@@ -92,7 +83,6 @@ const QuestionShow = () => {
         padding: '7px',
         borderRadius: '2px'
       }
-
 
     const QuestionBottom = () => {
         return(
@@ -118,7 +108,7 @@ const QuestionShow = () => {
         <> 
             <div id='question-body'>
                 <div className='vote-body'>
-                    <Vote  />
+                    <Vote question={question} />
                 </div>
                 <div>
                     <h2>{question.body}</h2>
@@ -131,7 +121,6 @@ const QuestionShow = () => {
         </>
         )
     }
-
 
     return(
         <>

@@ -11,4 +11,7 @@ class Answer < ApplicationRecord
   class_name: :Question,
   primary_key: :id, 
   foreign_key: :question_id
+
+  has_many :votes, as: :votable, 
+  dependent: :destroy
 end
