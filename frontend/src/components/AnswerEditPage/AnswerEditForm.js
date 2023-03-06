@@ -18,7 +18,7 @@ function AnswerEditForm() {
 
   useEffect(()=>{
     dispatch(fetchAnswer(questionId,answerId))
-  },[questionId,answerId,dispatch])
+  },[])
 
 
  if (!answer){

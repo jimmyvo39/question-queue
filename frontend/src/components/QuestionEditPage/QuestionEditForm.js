@@ -20,7 +20,7 @@ function QuestionEditForm() {
 
   useEffect(()=>{
     dispatch(fetchQuestion(questionId))
-  },[dispatch,questionId])
+  },[])
 
   const author_id = sessionUser ? sessionUser.id : null
   const id = questionId
