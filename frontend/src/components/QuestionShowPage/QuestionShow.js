@@ -33,17 +33,13 @@ const QuestionShow = () => {
     if (!question){
         return null
     }
-
     let sessionMod;
-
 
     const handle = (e)=> {
         e.preventDefault()
         dispatch(deleteQuestion(question.id))
         history.push(`/questions`)
     }
-
-
 
     if (!sessionUser) {
         sessionMod = (
