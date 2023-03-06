@@ -16,7 +16,9 @@ const Vote = ({ question }) => {
           return vote ? vote : null;
         };
     };
+
     
+
     const vote = useSelector(getVote(questionId,sessionUser.id));
 
 
