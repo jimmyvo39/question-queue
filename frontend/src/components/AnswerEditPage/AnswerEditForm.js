@@ -11,7 +11,7 @@ function AnswerEditForm() {
   const sessionUser = useSelector(state => state.session.user);
   const {questionId,answerId} = useParams();
   const answer =  useSelector(getAnswer(answerId));
-  console.log(answer)
+
   
   const [answerBody, setAnswerBody] = useState(answer ? answer.body : "");
   const authorId = sessionUser ? sessionUser.id : null

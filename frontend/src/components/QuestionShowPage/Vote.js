@@ -7,13 +7,13 @@ const Vote = ({ question }) => {
   const questionId = question.id;
 
   const vote = useSelector(getVote(questionId));
-  console.log(vote)
+
 
   const [voteStatus, setVoteStatus] = useState(vote ? vote.type : null);
   const [voteCount, setVoteCount] = useState(question.votesCount);
 
   useEffect(() => {
-    console.log(vote)
+  
     if (vote) {
       setVoteStatus(vote.type);
     } else {

@@ -29,7 +29,7 @@ const AnswerIndexItem = ({answer}) => {
 
   const edit = (e)=> {
     e.preventDefault();
-    console.log(e)
+
     history.push(`/questions/${questionId}/answers/${answer.id}`);
   }
 
