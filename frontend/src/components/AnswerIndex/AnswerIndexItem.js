@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useHistory, useParams} from 'react-router-dom';
+import { useHistory, useParams} from 'react-router-dom';
 import { useDispatch, useSelector  } from 'react-redux';
 import {deleteAnswer} from "../../store/answers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
