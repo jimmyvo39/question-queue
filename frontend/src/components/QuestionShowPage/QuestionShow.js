@@ -41,47 +41,54 @@ const QuestionShow = () => {
         history.push(`/questions`)
     }
     let voteSession;
+
     if (!sessionUser) {
         sessionMod = (
         <>
         </>
         );
-        voteSession = (
-        <>
-            <svg
-            fill='grey'
-            aria-hidden="true"
-            className="svg-icon iconArrowUpLg"
-            width="36"
-            height="36"
-            viewBox="0 0 36 36"
-          >
-            <path d="M2 25h32L18 9 2 25Z"></path>
-          </svg>
-          <h4>{question.votesCount}</h4>
-          <svg
-            fill='grey'
-            aria-hidden="true"
-            className="svg-icon iconArrowDownLg"
-            width="36"
-            height="36"
-            viewBox="0 0 36 36"
-          >
-            <path d="M2 11h32L18 27 2 11Z"></path>
-          </svg>
-        </>
-
-        )
+        
         } else if (sessionUser.id === question.authorId) {
-            voteSession = <Vote question={question} />
-        sessionMod = (
-            <>
+            sessionMod = (
+                <>
                 <div >
                     <NavLink to={`/questions/${questionId}/edit`} className='edit-delete'>Edit</NavLink>
                     <button onClick={handle} className='edit-delete'>Delete</button>
                 </div>
             </>
         );
+        
+    }
+
+    if (!sessionUser){
+        voteSession = (
+            <>
+                <svg
+                fill='grey'
+                aria-hidden="true"
+                className="svg-icon iconArrowUpLg"
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+              >
+                <path d="M2 25h32L18 9 2 25Z"></path>
+              </svg>
+              <h4>{question.votesCount}</h4>
+              <svg
+                fill='grey'
+                aria-hidden="true"
+                className="svg-icon iconArrowDownLg"
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+              >
+                <path d="M2 11h32L18 27 2 11Z"></path>
+              </svg>
+            </>
+            )
+
+    } else {
+        voteSession = <Vote question={question} />
     }
 
     const TimeStamp = () => {
