@@ -36,7 +36,7 @@ export const searchQuestions = (query) => async (dispatch) => {
 
     const res = await csrfFetch(`/api/questions/search?query=${query}`);
     const data = await res.json();
-    console.log(data);
+
     dispatch({ type: SEARCH_QUESTIONS, questions: data });
 };
 

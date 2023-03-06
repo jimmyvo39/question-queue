@@ -24,8 +24,7 @@ const Vote = ({ question }) => {
         return vote ? (vote.value === 1 ? 'upvote' : 'downvote') : null;
     };
     const [voteStatus, setVoteStatus] = useState(currentStatus(vote));
-    console.log(currentStatus(vote))
-  console.log(voteStatus)
+
   const [voteCount, setVoteCount] = useState(question.votesCount);
 
   useEffect(() => {

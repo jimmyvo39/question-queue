@@ -59,14 +59,14 @@ const QuestionIndexItem = ({question}) => {
 
   const UserName = () => {
     return(
-      <h3 className='question-asker'>
+      <div className='question-asker'>
         <div className='asker'>
           <FontAwesomeIcon icon={faUser} style={userIcon} />
         </div>
         {question.username}
         <h3 id='asked'> asked</h3>
-        <ReactTimeAgo date={question.createdAt} locale="en-US"/>
-      </h3>
+        <ReactTimeAgo date={new Date(question.createdAt)} locale="en-US"/>
+      </div>
     )
   }
 
