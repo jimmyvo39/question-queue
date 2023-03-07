@@ -96,6 +96,43 @@ using react-redux's useSelector hook, i check the current state for an existing 
 
 While any question can be read. logged in users can only edit, update, and delete their own questions. With this logic i render an empty div in place of a delete button if the the question does not belong to the user or their is no one logged in.
 
+```ruby
+class Api::VotesController < ApplicationController
+  before_action :require_logged_in
+
+  def upvote
+    vote(1)
+  end
+
+  def downvote
+    vote(-1)
+  end
+
+  private
+
+  def vote(value)
+    @votable = find_votable
+    @vote = @votable.votes.find_or_initialize_by(user_id: current_user.id)
+
+    if @vote.value == value
+      @vote.destroy
+    else
+      @vote.value = value
+      @vote.save
+    end
+
+    render json: { votable_type: @votable.class.name, votable_id: @votable.id, value: @vote.value }
+  end
+
+  def find_votable
+    if params[:answer_id]
+      Answer.find(params[:answer_id])
+    else
+      Question.find(params[:question_id])
+    end
+  end
+end
+```
 
 ## Anticipated updates include:
 - user index page/profile
