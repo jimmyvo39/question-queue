@@ -97,7 +97,7 @@ While any question can be read. logged in users can only edit, update, and delet
 ```
 ### Neutral Vote logic
 
-I implemented a polymorphic table to track my votes for both questions and answers. The back end logic handles "neutralized" votes by deleting votes that already exist. 
+To keep track of votes for both questions and answers, I have implemented a polymorphic table. The backend logic manages "neutralized" votes by deleting existing votes saving space on my limited database.
 
 ```ruby
 class Api::VotesController < ApplicationController
@@ -136,7 +136,7 @@ class Api::VotesController < ApplicationController
   end
 end
 ```
-On the front end, the voting component's logic handle the "neutralized" votes by updating the voteCount through React's useState and take into account for user voting the opposite direction of their original exising vote. VoteStatus not only tracks the current vote it also renders the upvoteColor for my upvote arrow.
+The voting component's logic on the frontend manages "neutralized" votes by utilizing React's useState to update the voteCount, and also considers cases where a user changes their vote direction. In addition to tracking the current vote, the VoteStatus component also renders the upvoteColor for the upvote arrow.
 
  ```javascript
   const upvoteColor = voteStatus === 'upvote' ? 'orange' : 'grey';
