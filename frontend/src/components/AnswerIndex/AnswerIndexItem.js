@@ -4,6 +4,8 @@ import { useDispatch, useSelector  } from 'react-redux';
 import {deleteAnswer} from "../../store/answers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import Vote from './Votes';
+
 
 import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago'
@@ -59,6 +61,38 @@ const AnswerIndexItem = ({answer}) => {
     );
   }
 
+  let voteSession;
+  if (!sessionUser){
+    voteSession = (
+        <>
+            <svg
+            fill='grey'
+            aria-hidden="true"
+            className="svg-icon iconArrowUpLg"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+          >
+            <path d="M2 25h32L18 9 2 25Z"></path>
+          </svg>
+          <h4 className='votes'>{answer.votesCount}</h4>
+          <svg
+            fill='grey'
+            aria-hidden="true"
+            className="svg-icon iconArrowDownLg"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+          >
+            <path d="M2 11h32L18 27 2 11Z"></path>
+          </svg>
+        </>
+        )
+
+} else {
+    voteSession = <Vote answer={answer} />
+}
+
   const randomColor = Math.floor(Math.random()*16777215).toString(16);
   const randomColorBG = Math.floor(Math.random()*16777215).toString(16);
 
@@ -89,11 +123,11 @@ const AnswerIndexItem = ({answer}) => {
     <>
            <div className='question-preview'>
           <div className='stats'>
-            {/* <h3>{answer.votesCount}</h3> */}
+            {voteSession}
           </div>
           <li className='question-preview-text'>
 
-              <h3 className="question-body-preview">{answer.body}</h3>
+              <h3 className="answer-body-preview">{answer.body}</h3>
               <div id='index-bottom'>
                 {sessionDelete}
                 <UserName/>

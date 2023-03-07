@@ -13,6 +13,8 @@ Rails.application.routes.draw do
         end
       end
     end
+    post 'answers/:answer_id/upvote', to: 'votes#upvote', defaults: { votable_type: 'Answer' }
+    post 'answers/:answer_id/downvote', to: 'votes#downvote', defaults: { votable_type: 'Answer' }
     resources :users, only: :create
     resource :session, only: [:show, :create, :destroy]
   end
