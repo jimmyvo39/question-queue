@@ -1,3 +1,87 @@
-.sidebar {
-    /* display: none; */
+#background {
+    margin-top: 30px;
+    background:linear-gradient(180deg, hsl(210deg 8% 15%) 0%, hsl(210deg 8% 35%) 130%);
+    width: 90%;
+    min-height: 90vh;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 40px;
+    
 }
+
+#join-box {
+    background-color: hsl(27deg 95% 90%);
+    margin-top: 50px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    max-width: 400px;
+    /* position: absolute; 
+    top: 30%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); */
+    border-radius: 7px; 
+}
+
+#join-box h2{
+    text-align: center;
+    font-weight: 200;
+    line-height: 150%;
+}
+
+#join-button{
+    font-family:  "system-ui", "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: center;
+    text-justify: distribute;
+    text-decoration: none;
+    color: #FFFFFF;
+  
+    height: 43px;
+    width: 210px;
+
+    background-color: rgb(242,116,13);
+    border: 1px solid rgb(122, 167, 199);
+    padding: 12px 32px;
+    box-shadow: rgba(255, 255, 255, 0.7) 0px 1px 0px 0px inset;
+    border-radius: 5px;
+}
+
+.join-button:hover {
+background-color: hsl(27deg 90% 45%);
+}
+
+h1#big {
+    margin-top: 50px;
+    text-align: center;
+    line-height: 120%;
+    font-family: 'Roboto Slab Bold',serif;
+    font-weight: 900;
+    font-size: 4.23076923rem;
+    color:hsl(210deg 8% 98%);
+    max-width: 800px;
+}
+
+h2#tag {
+    margin-top: 30px;
+    font-family:  "system-ui", "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+    letter-spacing: normal;
+    text-align: center;
+    text-justify: distribute;
+    text-decoration: none;
+    color: rgb(242,116,13);
+}
+
+
+
+
