@@ -98,9 +98,8 @@ While any question can be read. logged in users can only edit, update, and delet
 
 
 ## Anticipated updates include:
-- full CRUD functionality for answers
-- ability to search
-- ability to vote 
+- user index page/profile
+
 
 ### Acknowledgement
 [Meyer Web](https://meyerweb.com/eric/tools/css/reset/) - providing CSS Reset
