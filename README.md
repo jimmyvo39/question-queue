@@ -40,6 +40,8 @@ This project will be implemented with the following technologies:
 - Render
 
 ## Highlighting code snippets
+### Render logic based on login status
+using react-redux's useSelector hook, i check the current state for an existing login. The navbar is rendered with particular componenets depending on the status. 
  ```javascript
 const sessionUser = useSelector(state => state.session.user);
 
@@ -67,8 +69,9 @@ if (sessionUser) {
 }
 ```
 
-### Render logic based on login status
-using react-redux's useSelector hook, i check the current state for an existing login. The navbar is rendered with particular componenets depending on the status. 
+### Render logic based on login status and User ID
+
+While any question can be read. logged in users can only edit, update, and delete their own questions. With this logic i render an empty div in place of a delete button if the the question does not belong to the user or their is no one logged in.
 
  ```javascript
    if ( !sessionUser ) {
@@ -92,9 +95,9 @@ using react-redux's useSelector hook, i check the current state for an existing 
   }
 
 ```
-### Render logic based on login status and User ID
+### Neutral Vote logic
 
-While any question can be read. logged in users can only edit, update, and delete their own questions. With this logic i render an empty div in place of a delete button if the the question does not belong to the user or their is no one logged in.
+I implemented a polymorphic table to track my votes for both questions and answers. The back end logic handles "neutralized" votes by deleting votes that already exist. 
 
 ```ruby
 class Api::VotesController < ApplicationController
@@ -132,6 +135,29 @@ class Api::VotesController < ApplicationController
     end
   end
 end
+```
+On the front end, the voting component's logic handle the "neutralized" votes by updating the voteCount through React's useState and take into account for user voting the opposite direction of their original exising vote. VoteStatus not only tracks the current vote it also renders the upvoteColor for my upvote arrow.
+
+ ```javascript
+  const upvoteColor = voteStatus === 'upvote' ? 'orange' : 'grey';
+  
+  function handleUpvote() {
+    if (voteStatus === 'upvote') {
+      dispatch(removeVote({ id: questionId, type: 'questions', voteType: 'upvote' }));
+      dispatch(upvote({ id: questionId, type: 'questions' }));
+      setVoteStatus(null);
+      setVoteCount(voteCount - 1);
+    } else if (voteStatus === 'downvote') {
+      dispatch(removeVote({ id: questionId, type: 'questions', voteType: 'downvote' }));
+      dispatch(upvote({ id: questionId, type: 'questions' }));
+      setVoteStatus('upvote');
+      setVoteCount(voteCount + 2);
+    } else {
+      dispatch(upvote({ id: questionId, type: 'questions' }));
+      setVoteStatus('upvote');
+      setVoteCount(voteCount + 1);
+    }
+}
 ```
 
 ## Anticipated updates include:
