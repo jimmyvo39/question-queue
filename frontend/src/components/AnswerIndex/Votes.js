@@ -44,6 +44,7 @@ const Vote = ({ answer }) => {
   function handleUpvote() {
     if (voteStatus === 'upvote') {
       dispatch(removeVote({ id: answerId, type: 'answers', voteType: 'upvote' }));
+      dispatch(upvote({ id: answerId, type: 'answers' }));
       setVoteStatus(null);
       setVoteCount(voteCount - 1);
     } else if (voteStatus === 'downvote') {
@@ -61,6 +62,7 @@ const Vote = ({ answer }) => {
   function handleDownvote() {
     if (voteStatus === 'downvote') {
       dispatch(removeVote({ id: answerId, type: 'answers', voteType: 'downvote' }));
+      dispatch(downvote({ id: answerId, type: 'answers' }));
       setVoteStatus(null);
       setVoteCount(voteCount + 1);
     } else if (voteStatus === 'upvote') {
