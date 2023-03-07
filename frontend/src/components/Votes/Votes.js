@@ -10,28 +10,28 @@ const Vote = ({ question }) => {
 
   
   const getVote = (questionId, userId) => {
-      return (state) => {
-          const votes = state.questions[questionId]?.votes || [];
-          const vote = votes.find((vote) => vote.user_id === userId);
-          return vote ? vote : null;
-        };
-    };
+    return (state) => {
+        const votes = state.questions[questionId]?.votes || [];
+        const vote = votes.find((vote) => vote.user_id === userId);
+        return vote ? vote : null;
+      };
+  };
 
     
 
-    const vote = useSelector(getVote(questionId,sessionUser.id));
+  const vote = useSelector(getVote(questionId,sessionUser.id));
 
 
-    const currentStatus = (vote) => {
-        return vote ? (vote.value === 1 ? 'upvote' : 'downvote') : null;
-    };
-    const [voteStatus, setVoteStatus] = useState(currentStatus(vote));
+  const currentStatus = (vote) => {
+      return vote ? (vote.value === 1 ? 'upvote' : 'downvote') : null;
+  };
+  const [voteStatus, setVoteStatus] = useState(currentStatus(vote));
 
   const [voteCount, setVoteCount] = useState(question.votesCount);
 
-  useEffect(() => {
-    setVoteStatus(currentStatus(vote));
-  }, [vote]);
+useEffect(() => {
+  setVoteStatus(currentStatus(vote));
+}, [vote]);
 
   useEffect(() => {
     setVoteCount(question.votesCount);
@@ -44,6 +44,7 @@ const Vote = ({ question }) => {
   function handleUpvote() {
     if (voteStatus === 'upvote') {
       dispatch(removeVote({ id: questionId, type: 'questions', voteType: 'upvote' }));
+      dispatch(upvote({ id: questionId, type: 'questions' }));
       setVoteStatus(null);
       setVoteCount(voteCount - 1);
     } else if (voteStatus === 'downvote') {
@@ -61,6 +62,7 @@ const Vote = ({ question }) => {
   function handleDownvote() {
     if (voteStatus === 'downvote') {
       dispatch(removeVote({ id: questionId, type: 'questions', voteType: 'downvote' }));
+      dispatch(downvote({ id: questionId, type: 'questions' }));
       setVoteStatus(null);
       setVoteCount(voteCount + 1);
     } else if (voteStatus === 'upvote') {

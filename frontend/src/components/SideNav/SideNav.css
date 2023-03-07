@@ -63,4 +63,10 @@
     padding-left: 40px;
 }
 
-
+.activeLink {
+    color: black;
+    font-weight: bold;
+    background: hsl(210deg 8% 95%);
+    border-right: 3px solid hsl(27deg 90% 55%);
+  }
+  
