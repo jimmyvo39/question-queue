@@ -1,7 +1,8 @@
 .form-page {
     display: flex;
     flex-direction: column;
-    width: 850px;
+    width: 726px;
+    margin: 24px;
 }
 
 body {
