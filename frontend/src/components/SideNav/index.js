@@ -39,7 +39,7 @@ function SideNav() {
           </div>
         </NavLink>
 
-        <NavLink to="/users" className="link" id="user-link" activeClassName="activeLink">Users</NavLink>
+        {/* <NavLink to="/users" className="link" id="user-link" activeClassName="activeLink">Users</NavLink> */}
 
       </div> 
     </div>
