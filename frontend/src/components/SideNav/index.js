@@ -13,7 +13,7 @@ function SideNav() {
     )
   }
 
-  const activestyle = {
+  const active = {
     color: "black", 
     fontWeight: "bold", 
     background: "hsl(210deg 8% 95%)", 
@@ -29,17 +29,17 @@ function SideNav() {
     <div className='container'>
       <div className='sidebar'>
         
-        <NavLink to="/home" className="link" activestyle={activestyle} >Home</NavLink>
+        <NavLink to="/home" className="link" activeClassName="activeLink" >Home</NavLink>
 
         <h3>PUBLIC</h3>
 
-        <Link onClick={handleClick} to="/questions" className="link" activestyle={activestyle} >
+        <NavLink onClick={handleClick} to="/questions" className="link" activeClassName="activeLink">
           <div id="question-nav">
             <Globe/>Questions
           </div>
-        </Link>
+        </NavLink>
 
-        <NavLink to="/users" className="link" id="user-link" activestyle={activestyle}>Users</NavLink>
+        <NavLink to="/users" className="link" id="user-link" activeClassName="activeLink">Users</NavLink>
 
       </div> 
     </div>

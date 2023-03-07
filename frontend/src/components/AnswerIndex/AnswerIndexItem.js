@@ -46,10 +46,10 @@ const AnswerIndexItem = ({answer}) => {
     sessionDelete = (
       <>
         <>
-          <button onClick={handle} id='delete-btn'>DELETE</button>
+          <button onClick={handle} className='edit-delete'>DELETE</button>
         </>
         <>
-          <button onClick={edit} id='delete-btn'>EDIT</button>
+          <button onClick={edit} className='edit-delete'>EDIT</button>
         </>
       </>
     );

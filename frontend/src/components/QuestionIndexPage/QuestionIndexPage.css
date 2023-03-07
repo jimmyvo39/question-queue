@@ -6,6 +6,7 @@
     padding: 10px 20px;
     border-top: 1px grey solid;
     display: flex;
+    min-width: 750px;
 }
 
 .index-head {
@@ -33,6 +34,7 @@
 }
 
 #index-bottom{
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-content: cent

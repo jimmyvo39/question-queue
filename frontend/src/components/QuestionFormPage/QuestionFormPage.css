@@ -21,6 +21,7 @@ body {
     border-radius: 3px;
     border:  rgb(140, 200, 246) 1px solid;
     padding: 24px; 
+    max-width: 750px;
 }
 .question-prompt h4 {
     font-size: 21px;
@@ -52,6 +53,7 @@ ul {
     color: rgb(59, 64,69);
     border-radius: 3px;
     border:  rgb(133, 145, 155) 1px solid;
+    max-width: 750px;
 }  
 
 #title-prompt-header {
@@ -83,6 +85,7 @@ ul {
     border-radius: 3px;
     border:  rgb(133, 145, 155) 1px solid;
     padding: 24px;
+    max-width: 750px;
 }  
 
 .form-container h2{
