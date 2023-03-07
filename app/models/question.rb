@@ -16,8 +16,8 @@ class Question < ApplicationRecord
   belongs_to :author,
   class_name: :User,
   primary_key: :id, 
-  foreign_key: :author_id,
-  dependent: :destroy
+  foreign_key: :author_id
+
 
   has_many :answers,
   class_name: :Answer,
