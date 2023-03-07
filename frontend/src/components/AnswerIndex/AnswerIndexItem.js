@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Vote from './Votes';
 
+
 import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from 'react-time-ago'
 import en from 'javascript-time-ago/locale/en.json'
@@ -74,7 +75,7 @@ const AnswerIndexItem = ({answer}) => {
           >
             <path d="M2 25h32L18 9 2 25Z"></path>
           </svg>
-          <h4>{answer.votesCount}</h4>
+          <h4 className='votes'>{answer.votesCount}</h4>
           <svg
             fill='grey'
             aria-hidden="true"
@@ -122,12 +123,11 @@ const AnswerIndexItem = ({answer}) => {
     <>
            <div className='question-preview'>
           <div className='stats'>
-            {/* <Vote answer={answer}/> */}
             {voteSession}
           </div>
           <li className='question-preview-text'>
 
-              <h3 className="question-body-preview">{answer.body}</h3>
+              <h3 className="answer-body-preview">{answer.body}</h3>
               <div id='index-bottom'>
                 {sessionDelete}
                 <UserName/>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeVote, upvote, downvote } from '../../store/votes';
-
+import './AnswerIndex.css';
 const Vote = ({ answer }) => {
     const sessionUser = useSelector(state => state.session.user);
 
@@ -90,7 +90,7 @@ const Vote = ({ answer }) => {
       >
         <path d="M2 25h32L18 9 2 25Z"></path>
       </svg>
-      <h4>{voteCount}</h4>
+      <h4 className='votes'>{voteCount}</h4>
       <svg
         fill={downvoteColor}
         onClick={handleDownvote}
