@@ -13,7 +13,6 @@ export const upvote = (vote) => async (dispatch) => {
   const res = await csrfFetch(`/api/${vote.type}/${vote.id}/upvote`, {
     method: "POST",
   });
-  console.log(res)
   const data = await res.json();
   dispatch(receiveVote(data));
 };
