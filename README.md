@@ -8,10 +8,11 @@
 
 In Question queue users are currently able to:
  - to signup and login with their registered credentials
- - read question as users
- - ask questions as registerd users
- - update questions as registerd users
- - delete questions as registerd users
+ - read question and answers as users
+ - post questions/answers as registerd users
+ - update questions/answers as registerd users
+ - delete questions/answers as registerd users
+ - vote on questions/answers as registerd users
  
 
 ## Wireframes
